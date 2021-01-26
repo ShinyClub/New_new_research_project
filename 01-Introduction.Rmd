@@ -10,12 +10,16 @@ params:
 ---
 
 # Introduction
-Hoe commit je?
+Hoe commit je? (overbodig)
 in terminal:
 git add .
 git commit -m"plaats hier tekst"
 git status
 git branch M
+
+Naam geven bestanden:
+nummer + hoofdstuk + functie
+04-Bversie-untar-files
 
 Hier hebben we het over het doel van het experiment
 We hebben de code op sommige plekken een beetje aangepast, zodat in het verslag ook te zien is wat er gebeurd.

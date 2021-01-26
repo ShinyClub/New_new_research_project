@@ -1,0 +1,32 @@
+---
+title: "04-untar-files"
+author: "Jelmer"
+date: "25-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+### Untar the data.
+To untar the data we first need to tell R where to find the tarred files. We do this with the first line of code, this contains the location of the files. We only select the tarred files with the pattern function.
+We tell the map function with .x where to look for the tarred data and with .f to untar these files.
+The last thing we tell map to do is making a new folder. We do this with exdir, this is needed because in a tarred file there are several smaller files, they need a place to go.
+
+Because the location is now different, we made an unzip function inside the untar code chunk.
+
+```{r Untar files}
+
+#To untar more files (from different geo_datasets doesn't work yet)
+files_tar <- list.files(path = here::here(datasets), full.names = TRUE, pattern = ".tar")
+
+untarr <- map(
+  .x = files_tar,
+  .f = untar,
+  exdir = file.path(root, params$geo_dataset , "untarred")
+)
+## Untarred files will be unzipped    ##voor nu gebruiken "Probleem"  normaal gebruiken > datasets (zonder "") (weet niet meer waarom dit er staat en of het is opgelost)
+list_for_unzipping <- list.files(file.path(root, datasets, "untarred"), full.names = TRUE)
+lapply(list_for_unzipping, gunzip)
+```

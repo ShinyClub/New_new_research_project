@@ -1,0 +1,73 @@
+---
+title: "19-build-deseq2-tab"
+author: "Jelmer"
+date: "25-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+
+#### Deseq2 function
+```{r eval=FALSE, include=FALSE}
+#DESeq2 function (only head, what does this?)
+#Loading the se we just made in the Summarised Experiment
+deseq2_function <- function(se_input){
+  ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
+  
+  #With this part we select only genes with more than 10 counts
+  keep <- rowSums(counts(ddsSE)) >= 10
+  ddsSE <- ddsSE[keep,]
+  
+  #run differential expression analysis
+  ddsDE<- DESeq(ddsSE)
+  
+  #Results
+  res <- results(ddsDE)
+  head_res <- res[order(res$padj), ] %>% head
+  #all_res <- res[order(res$padj)]
+  return(head_res)
+}
+
+#as.matrix(deseq2_function(se_input = testdata))
+
+```
+
+###Make DESeq2 tab
+This page is quite simple, we make a box where the data will be rendered. With an actionbutton the user will be able to activate the "deseq2_function" 
+
+```{r eval=FALSE, include=FALSE}
+#deseq2 tab UI
+#Hoe kunnen we alleen de code laten zien, maar niet laten lopen?
+tabItem(tabName = "make_DESeq2",
+        verticalLayout(
+         
+          box(
+            title = "DESeq2 analysis",
+            width = "10",
+            actionButton("calculate_DESeq2", "DESeq2"),
+            
+          box(
+            title = "First examples of DESeq2 analysis",
+            width = "12",
+            dataTableOutput("matrix_DESeq2")
+          ))
+          ))
+```
+
+```{r eval=FALSE, include=FALSE}
+#deseq2 tab server
+head_res <- eventReactive(input$calculate_DESeq2, {
+    deseq2_function(se_input = se_2())
+  })
+  
+  output$matrix_DESeq2 <- DT::renderDataTable({
+    as.matrix(deseq2_function(se_input = se_2()))
+  })
+```
+
+```{r eval=FALSE, include=FALSE}
+DESeq2_page <-  here::here("eindverslag", "images", "Deseq2.PNG")
+```

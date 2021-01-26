@@ -1,0 +1,37 @@
+---
+title: "02-Beta-version"
+author: "Jelmer"
+date: "24-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+#The hardcode - the beta version of the dashboard
+In this part we'll explain each part of our version of the dashboard.
+This chapter contains the following sub-chapters
+
+(hier dingen zoeken om het anders weer te geven, ook linkjes maken zodat je meteen naar dit hoofdstuk kan etc etc)
+
+Get the first data of the experiment : in this chapter the following things will be discussed and explained...
+
+Untar the data.
+
+Unzipping of the downloaded data
+
+Make data ready for SummarizedExperiment and DESeq2
+
+Genarating a summarized experiment for (CSV)
+
+SummarizedExperiment (S)
+iSEE
+
+DESeq2 analysis
+
+The visualization of the dataset
+Heatmap
+PCA
+Histogram
+Vulcan-plot

@@ -1,2 +1,12 @@
 prerequisites
 introduction
+the-hardcode---the-beta-version-of-the-dashboard
+get-the-first-data-of-the-experiment
+untar-the-data.
+unzipping-of-the-downloaded-data
+make-data-ready-for-summarizedexperiment-and-deseq2
+genarating-a-summarized-experiment-for-csv
+last-steps-before-summarizedexperiment
+inleiding-shiny-dashboard
+deseq2-function
+make-deseq2-tab

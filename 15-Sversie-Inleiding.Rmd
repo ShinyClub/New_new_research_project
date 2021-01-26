@@ -1,0 +1,12 @@
+---
+title: "15-Sversie-inleiding"
+author: "Jelmer"
+date: "24-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+# inleiding shiny dashboard

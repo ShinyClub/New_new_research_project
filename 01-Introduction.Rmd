@@ -1,0 +1,72 @@
+---
+title: "01-Introduction"
+author: "Jelmer"
+date: "24-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+# Introduction
+Hoe commit je?
+in terminal:
+git add .
+git commit -m"plaats hier tekst"
+git status
+git branch M
+
+Hier hebben we het over het doel van het experiment
+We hebben de code op sommige plekken een beetje aangepast, zodat in het verslag ook te zien is wat er gebeurd.
+In dit verslag lopen we langs alle stappen van de Hardcode (hierboven uitgelegd). Per "code chunk" wordt uitgelegd wat de functie/werking/doel is. 
+
+Differential expression analysis
+This analysis used the DESeq2 workflow by Love et al., 2014(^ Love, M.I., Huber, W. & Anders, S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15, 550 (2014). https://doi.org/10.1186/s13059-014-0550-8)
+
+loading libraries and setting root 
+Alle functies zijn opgeslagen in library's deze moeten we dus eerst downloaden en ophalen.
+```{r eval=FALSE, include=FALSE}
+#install libraries if not installed
+#require("tidyverse") || utils::install.packages("tidyverse")
+#require("rprojroot") || utils::install.packages("rprojroot")
+#require("pheatmap") || utils::install.packages("pheatmap")
+#require("edgeR") || utils::install.packages("edgeR")
+#require("dplyr") || utils::install.packages("dplyr")
+#BiocManager::install("Biostrings")
+#BiocManager::install("biomaRt")
+#BiocManager::install("GEOquery")
+#BiocManager::install("rnaseqGene")
+#BiocManager::install("msa")
+#BiocManager::install("iSEE")
+#install.packages("bookdown")
+```
+
+```{r include=FALSE}
+#load libraries
+library(bookdown)
+library(tidyverse)
+library(rprojroot)
+library(Biostrings)
+library(biomaRt)
+library(GEOquery)
+library(rnaseqGene)
+library(pheatmap)
+library(msa)
+library(iSEE)
+library(edgeR)
+library(dplyr)
+library(DESeq2)
+library(readr)
+```
+
+uitleggen
+```{r}
+#find the root file
+root <- find_root_file(criterion = is_rstudio_project)
+```
+
+We leggen voor elk stukje code uit wat er gebeurd en waarom.
+De code is zo opgedeeld dat elk stukje code uitgelegd kan worden, en gevisualiseerd.
+kleine aanpassing test
+

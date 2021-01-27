@@ -165,6 +165,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="inleiding-shiny-dashboard" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> inleiding shiny dashboard</h1>
 <p>woaah dashboard</p>
+<p>How this dashboard looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/instructions_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/instructions_tab.PNG" width="618" /></p>
 
 <div id="download-function" class="section level2">
 <h2><span class="header-section-number">5.1</span> Download function</h2>
@@ -260,6 +263,9 @@ new_download_function &lt;-<span class="st"> </span><span class="cf">function</s
                 )  
                 
     ))</code></pre></div>
+<p>How this dashboard looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/download_dataset_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/download_dataset_tab.PNG" width="498" /></p>
 
 </div>
 </div>
@@ -419,6 +425,9 @@ new_download_function &lt;-<span class="st"> </span><span class="cf">function</s
               
               
               ))</code></pre></div>
+<p>How this dashboard looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/supp_files_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/supp_files_tab.PNG" width="823" /></p>
 
 </div>
 </div>
@@ -426,6 +435,9 @@ new_download_function &lt;-<span class="st"> </span><span class="cf">function</s
 <div id="groupselection-tab" class="section level2">
 <h2><span class="header-section-number">5.4</span> Groupselection tab</h2>
 <p>wow hier kan je niets doen.</p>
+<p>How this dashboard looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/experimental_groups_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/experimental_groups_tab.PNG" width="440" /></p>
 
 </div>
 <div id="build-summarized-experiment-function" class="section level2">
@@ -507,6 +519,9 @@ new_download_function &lt;-<span class="st"> </span><span class="cf">function</s
                  <span class="kw">dataTableOutput</span>(<span class="st">&quot;tbl_assaydata_preview&quot;</span>)
                 )
                )))</code></pre></div>
+<p>How this dashboard looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/SE_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/SE_tab.PNG" width="506" /></p>
 
 </div>
 <div id="deseq2-function" class="section level4">
@@ -516,6 +531,9 @@ new_download_function &lt;-<span class="st"> </span><span class="cf">function</s
 <div id="make-deseq2-tab" class="section level3">
 <h3><span class="header-section-number">5.5.3</span> Make DESeq2 tab</h3>
 <p>This page is quite simple, we make a box where the data will be rendered. With an actionbutton the user will be able to activate the &quot;deseq2_function&quot;</p>
+<p>How this dashboard looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/Deseq2_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/Deseq2_tab.PNG" width="802" /></p>
 
 </div>
 <div id="figures" class="section level3">
@@ -606,6 +624,15 @@ new_download_function &lt;-<span class="st"> </span><span class="cf">function</s
   output<span class="op">$</span>matrix_Vulcan &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
     <span class="kw">vulcan_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
   })</code></pre></div>
+<p>How the PCA looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/PCA_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/PCA_tab.PNG" width="686" /> How the heatmap looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/heatmap_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/heatmap_tab.PNG" width="671" /> How the histogram looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/Histogram_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/Histogram_tab.PNG" width="684" /> How the vulcan plot looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/vulcan_plot.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/vulcan_plot.PNG" width="673" /></p>
 
 <div id="pca-function" class="section level4">
 <h4><span class="header-section-number">5.5.4.1</span> PCA function</h4>
@@ -650,6 +677,9 @@ pca_function &lt;-<span class="st"> </span><span class="cf">function</span>(se_i
   output<span class="op">$</span>matrix_PCA &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
     <span class="kw">pca_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
   })</code></pre></div>
+<p>How this dashboard looks like.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;dashboard_pictures/download_tab.PNG&quot;</span>)</code></pre></div>
+<p><img src="dashboard_pictures/download_tab.PNG" width="266" /></p>
 
 </div>
 <div id="heatmap-function" class="section level4">

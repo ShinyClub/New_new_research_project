@@ -176,4 +176,8 @@ This is the code used in the server to load the supp files and untar and unzip t
               ))
 ```          
 
+How this dashboard looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/supp_files_tab.PNG")
+```
 

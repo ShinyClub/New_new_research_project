@@ -12,3 +12,7 @@ params:
 ## Groupselection tab
 wow hier kan je niets doen.  
 
+How this dashboard looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/experimental_groups_tab.PNG")
+```

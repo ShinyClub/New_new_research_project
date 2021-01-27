@@ -60,3 +60,8 @@ tabItem(tabName = "make_figures",
   })
 ```
 
+How this dashboard looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/download_tab.PNG")
+```
+

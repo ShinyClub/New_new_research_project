@@ -15,7 +15,7 @@ in terminal:
 git add .
 git commit -m"plaats hier tekst"
 git status
-git branch M
+git branch main
 
 Naam geven bestanden:
 nummer + hoofdstuk + functie

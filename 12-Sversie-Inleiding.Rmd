@@ -11,3 +11,9 @@ params:
 
 # inleiding shiny dashboard
 woaah dashboard  
+
+
+How this dashboard looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/instructions_tab.PNG")
+```

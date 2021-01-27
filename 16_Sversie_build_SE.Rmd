@@ -101,4 +101,8 @@ The last box shows the selected colnames of the phenodata.
                )))
 ```
 
+How this dashboard looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/SE_tab.PNG")
+```
 

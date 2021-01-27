@@ -71,3 +71,8 @@ head_res <- eventReactive(input$calculate_DESeq2, {
 ```{r eval=FALSE, include=FALSE}
 DESeq2_page <-  here::here("eindverslag", "images", "Deseq2.PNG")
 ```
+
+How this dashboard looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/Deseq2_tab.PNG")
+```

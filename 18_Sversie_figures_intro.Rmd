@@ -104,3 +104,20 @@ tabItem(tabName = "make_figures",
   })
 ```
 
+How the PCA looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/PCA_tab.PNG")
+```
+How the heatmap looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/heatmap_tab.PNG")
+```
+How the histogram looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/Histogram_tab.PNG")
+```
+How the vulcan plot looks like.
+```{r}
+knitr::include_graphics("dashboard_pictures/vulcan_plot.PNG")
+```
+

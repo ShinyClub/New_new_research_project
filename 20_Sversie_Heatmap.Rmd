@@ -1,0 +1,71 @@
+---
+title: "19_Sversie_Heatmap"
+author: "Jelmer en Sanne"
+date: "27-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+#### Heatmap function
+```{r eval=FALSE, include=FALSE}
+heatmap_function <- function(se_input){
+  #First part is the deseq2 function again
+  ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
+  
+  keep <- rowSums(counts(ddsSE)) >= 10
+  ddsSE <- ddsSE[keep,]
+  
+  ddsDE <- DESeq(ddsSE)
+  
+  ddsDE_rlog <- ddsDE %>%
+    rlogTransformation() 
+  
+  
+  
+  matrix_results <- assay(ddsDE_rlog)
+  
+  ind <- matrix_results %>%
+    rowMeans() %>%
+    order(decreasing = TRUE) 
+  
+  top20 <- matrix_results[ind[1:20],]
+  
+  annot_df <- as.data.frame(colData(ddsDE)[,c("dev_stage","genotype")])
+  
+  heatmap <- pheatmap(top20,
+                      scale = "row", 
+                      annotation_col = annot_df)
+  return(heatmap)
+}
+```
+
+
+#### Make heatmap figure of top 20
+
+```{r eval=FALSE, include=FALSE}
+box(
+              title = "Heatmap",
+              width = "10",
+              actionButton("calculate_heatmap", "Heatmap top 20"),
+              
+              box(
+                title = "heatmap",
+                width = "12",
+                plotOutput("matrix_heatmap")
+              ))
+```
+
+```{r eval=FALSE, include=FALSE}
+#Heatmap maken
+  heatmap_plot <- eventReactive(input$calculate_heatmap, {
+    heatmap_function(se_input = se_2())
+  })
+  
+  output$matrix_heatmap <- renderPlot ({
+    heatmap_function(se_input = se_2())
+  })
+```
+

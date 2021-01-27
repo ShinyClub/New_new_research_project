@@ -1,0 +1,52 @@
+---
+title: "10-visualization"
+author: "Jelmer"
+date: "25-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### The visualization of the dataset 
+
+The code below will plot a histogram, this histogram will show the distribution of the p-values calculated by the DESeq2 analyze. 
+```{r}
+ggplot(as(res_csv_data, "data.frame"), aes(x = pvalue)) +
+  geom_histogram()
+```
+
+This code will create a volcano plot, a type of scatterplot, that will help by quickly identifying changes in the dataset. 
+```{r}
+DESeq2::plotMA(resLFC_csv_data, ylim=c(-2,2))
+```
+
+Here a Principal Component Analysis (PCA) is created, a PCA is used to observe outliers, jumps, clusters and trends. 
+```{r}
+ddsDE_rlog_csv_data <- ddsDE_csv_data %>%
+  rlogTransformation() 
+ddsDE_rlog_csv_data %>%
+  DESeq2::plotPCA(intgroup = c(params$data1 , params$data2)) +
+  geom_vline(xintercept = 0, linetype = "dashed", colour = "red") +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "red")
+```
+
+The code below creates a heatmap, this shows the extent of a phenomenon of the top 20 of up and down regulated genes as colour in two dimensions. 
+```{r}
+matrix_results_csv <- assay(ddsDE_rlog_csv_data)
+ind <- matrix_results_csv %>%
+  rowMeans() %>%
+  order(decreasing = TRUE) 
+top20 <- matrix_results_csv[ind[1:20],]
+annot_df <- as.data.frame(colData(ddsDE_csv_data)[,c(params$data1 , params$data2)])
+heatmap <- pheatmap(top20,
+                    scale = "row", 
+                    annotation_col = annot_df)
+heatmap
+```
+

@@ -1,0 +1,48 @@
+---
+title: "06-preSE"
+author: "Jelmer"
+date: "25-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+SummarizedExperiment is used for organising data. This package saves rectangular matrices from experimental results. The rows represent the characteristics of interest, typically genes and transcripts. The columns stand for the samples. ColData consits of samples and metadata. Metadata is data about data, so ColData contains extra information about the samples. 
+
+Here we will put a character factor in a word. The word now consits of the organised data of the raw sample data coming from the dataset. 
+```{r}
+se_csv_data <- SummarizedExperiment(assays = raw_counts_csv_data_matrix,
+                     rowData = rowdata_csv_data,
+                     colData = phenodata_csv)
+```
+
+Here we will ad the metadata manually because the SummarizedExperiment won't accept it otherwise. The $ function extracts elements from a named list, by heading. 
+```{r}
+metadata(se_csv_data)$metadata <- metadata 
+```
+
+With the code below we will be able to inspect the SummarizedExperiment. The code "head" will make it possible to view the first part of the data frame. 
+```{r}
+se_csv_data
+head(assay(se_csv_data))
+```
+
+
+#### iSEE
+
+This function can be used to explore the data stored in the SummarizedExperiment, like the row- and column-level metadata. 
+```{r}
+#iSEE test
+#se_csv_iSEE <- se_csv_data
+#iSEE(se_csv_iSEE)
+```
+
+
+
+

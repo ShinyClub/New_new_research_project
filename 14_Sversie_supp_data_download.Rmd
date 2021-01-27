@@ -1,0 +1,181 @@
+---
+title: "13_Sversie_supp_data_download"
+author: "Jelmer en Sanne"
+date: "27-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Downloading supfiles and untar/unzip functions. 
+### The working code behind the application. 
+
+The code for downloading the supfiles is really simmilar to the download function. Only it loads the supdata, instead of the entire dataset. 
+```{r}
+new_supp_download_fucntion <- function(gse_id_number) {
+  
+  datasets <- strsplit(gse_id_number, split = " ") %>% unlist
+  
+  full_paths <- file.path(here::here("data"), datasets)  
+  
+  data_supp <- map2(
+    .x  = datasets,
+    .y = full_paths,
+    getGEOSuppFiles,
+    makeDirectory = FALSE, 
+    #baseDir = getwd(),
+    fetch_files = TRUE, 
+    filter_regex = NULL
+  ) 
+  return(data_supp)
+  
+}
+```
+   
+This is the old function that is used to unzip and untar the GSE dataset. 
+```{r}
+untar_unzip_function <- function(gse_id_number){
+  
+  #list files that are in the supp files directory 
+  files <- list.files(here::here("data", gse_id_number), full.names = TRUE)
+  
+  #look for .tar extension and use this value to subset the list
+  tar_files <- str_subset(files, ".tar")
+  
+  #loop through the list and untar the files
+  for (x in tar_files){
+    untar(x, exdir = file.path(here::here("data", gse_id_number)))
+  }
+  
+  #remove tar files because we are done with them
+  file.remove(tar_files)
+  
+  #look again at the files that are now in the directory and list them
+  files <- list.files(here::here("data", gse_id_number), full.names = TRUE)
+  
+  #determine what files are zipped 
+  gz_files <- str_subset(files, ".gz")
+  
+  #loop through the list and unzip the files
+  for (x in gz_files){
+    gunzip(x)
+  }
+  
+  filenames <- list.files(here::here("data", gse_id_number))
+return(filenames)
+}
+```
+
+The new unzip function is created. We used this function to unzip the CSV data files.    
+```{r}
+new_unzip_function <- function(gse_id_number) {
+  
+  datasets <- strsplit(gse_id_number, split = " ") %>% unlist
+  
+  full_paths <- file.path(here::here("data"), datasets) 
+  
+  files_zip <- list.files(path = here::here("data", datasets), full.names = TRUE, pattern = ".gz")
+  unzipp <- map(
+    .x = files_zip,
+    .f = GEOquery::gunzip
+  )
+  
+  return(files_zip)
+}   
+   
+```   
+   
+## Supplementary files download and make assaydata tab 
+   
+### Shiny   
+#### Server.R  
+
+This is the code used in the server to load the supp files and untar and unzip the data. This code isn't working proprely, one line off code is turned off, because we couldn't create a code that can load the supp files of both text files and CSV files. 
+```{r}   
+  #Choose what data will be downloaded
+    supp_files_csv <- eventReactive(input$action_download_supp_files_csv, {
+    new_supp_download_fucntion(gse_id_number())
+  })
+  
+  #Show a list of supp files found in the folder
+  
+   output$list_of_downloaded_files <- renderTable(supp_files_csv())
+ # output$list_of_downloaded_files <- renderTable(supp_files_txt())
+  
+  #Untar and unzip the dataset. 
+  observeEvent(input$action_untar_unzip_supp_files_csv, {
+    new_unzip_function(gse_id_number())
+  })
+  observeEvent(input$action_untar_unzip_supp_files_txt, {
+    untar_unzip_function(gse_id_number())
+  })
+```
+
+#### UI.R
+```{r}
+ tabItem(tabName = "supp_files_assay_data",
+            fluidRow(
+              
+              #select what columns to view
+              box(
+                title = "download the supplementary files",
+                width = "10",
+                actionButton("action_download_supp_files_csv", label = "download supp files (CSV)", icon("download", lib = "font-awesome")),
+                actionButton("action_download_supp_files_tsv", label = "download supp files (TSV)", icon("download", lib = "font-awesome")),
+                actionButton("action_download_supp_files_txt", label = "download supp files (txt)", icon("download", lib = "font-awesome")),
+                actionButton("action_download_supp_files_etc", label = "download supp files (etc)", icon("download", lib = "font-awesome"))
+                
+                
+                
+              ),
+              
+              #show a list of supp files found in the folder
+              box(
+                title = "Show a list of supplementary files that have been downloaded.",
+                width = "10",
+                tableOutput("list_of_downloaded_files")
+              ),
+            
+              #untar and unzip 
+              box(
+                title = "untar and unzip files",
+                width = "10",
+                actionButton("action_untar_unzip_supp_files_csv", label = "untar and unzip supp files csv", icon("download", lib = "font-awesome")),
+                actionButton("action_untar_unzip_supp_files_txt", label = "untar and unzip supp files txt", icon("download", lib = "font-awesome"))
+                
+                ),
+              
+              #show files that have been untarred and unzipped
+              box(
+                title = "Show a list of supplementary files that have been unzipped.",
+                width = "10",
+                verbatimTextOutput("list_of_untarred_files")
+              ),
+              
+              
+              #Sample selection box, this uses names of files that are in the data --> "GSE###### folder". The boxes that are selected will be saved to input$sample_choices. 
+              box(
+                title = "Select samples",
+                width = "3",
+                uiOutput("sample_choices")
+              ),
+              
+              fluidRow(
+                box(
+                  width = 10,
+                  "Is the sample selection box empty? This is likely due to the folder being empty at the time the GSE number was entered. To fix this simply go to the 'download dataset' tab and click another time on the 'download this GSE dataset' button. 
+                  The sample selection boxes should now appear. To fix this problem some sort of 'refresh' button needs to be coded but this is not very straight-forward when submitButtons can not be used."
+                ))
+              
+              
+              
+              ))
+```          
+
+

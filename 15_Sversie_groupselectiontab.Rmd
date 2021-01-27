@@ -1,0 +1,15 @@
+---
+title: "14_Sversie_groupselectiontab"
+author: "Jelmer en Sanne"
+date: "27-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+

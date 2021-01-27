@@ -1,0 +1,68 @@
+---
+title: "20_Sversie_Histogram"
+author: "Jelmer en Sanne"
+date: "27-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Histogram code
+```{r eval=FALSE, include=FALSE}
+geom_histogram_function <- function(se_input) {
+  
+  #We need to do the first steps of the DESeq2 again, we are looking for a solution to make this easier
+  ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
+  #ddsSE <- DESeq2::DESeqDataSet(se, design = formula(~dev_stage + genotype))
+  
+  keep <- rowSums(counts(ddsSE)) >= 10
+  ddsSE <- ddsSE[keep,]
+  
+  #run differential expression analysis
+  ddsDE<- DESeq(ddsSE)
+  
+  #Results
+  res <- results(ddsDE)
+  head_res <- res[order(res$padj), ] %>% head
+  # show distribution of p-values
+  
+  Histogram_iets  <-ggplot(as(head_res, "data.frame"), aes(x = pvalue)) +
+    geom_histogram()
+  
+  return(Histogram_iets)
+}
+#
+```
+
+
+#### Make histogram figure
+```{r eval=FALSE, include=FALSE}
+box(
+            title = "Histogram",
+            width = "10",
+            actionButton("calculate_histogram", "histogram"),
+            
+            box(
+              title = "This is a Histogram",
+              width = "12",
+              plotOutput("matrix_Histogram")
+            ))
+```
+
+```{r eval=FALSE, include=FALSE}
+#Histogram
+  histogram_plot <- eventReactive(input$calculate_histogram, {
+    geom_histogram_function(se_input = se_2())
+  })
+  
+  output$matrix_Histogram <- renderPlot ({
+   geom_histogram_function(se_input = se_2())
+  })
+```
+

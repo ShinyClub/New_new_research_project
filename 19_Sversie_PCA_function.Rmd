@@ -1,0 +1,65 @@
+---
+title: "18_Sversie_PCA_function"
+author: "Jelmer en Sanne"
+date: "27-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### PCA function
+```{r eval=FALSE, include=FALSE}
+#PCA fucntion
+pca_function <- function(se_input){
+  #We need to do the first steps of the DESeq2 again, we are looking for a solution to make this easier
+    ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
+  
+  #ddsSE <- DESeq2::DESeqDataSet(se, design = formula(~dev_stage + infection_genotype))
+  
+  keep <- rowSums(counts(ddsSE)) >= 10
+  ddsSE <- ddsSE[keep,]
+  
+  ddsDE <- DESeq(ddsSE)
+  
+  ddsDE_rlog <- ddsDE %>%
+    rlogTransformation() 
+  
+#Make the pca_plot,, dev_stage and genotype needs to be params  
+  pca_plot <- ddsDE_rlog %>%
+    DESeq2::plotPCA(intgroup = c("dev_stage", "genotype")) +
+    geom_vline(xintercept = 0, linetype = "dashed", colour = "red") +
+    geom_hline(yintercept = 0, linetype = "dashed", colour = "red")
+  
+  return(pca_plot)
+}
+```
+
+
+#### Make PCA figure
+```{r eval=FALSE, include=FALSE}
+tabItem(tabName = "make_figures",
+        fluidRow(
+          
+          box(
+            title = "PCA",
+            width = "10",
+            actionButton("calculate_PCA", "First examples of PCA")
+```
+
+```{r eval=FALSE, include=FALSE}
+#PCA plot maken
+  pca_plot <- eventReactive(input$calculate_PCA, {
+    pca_function(se_input = se_2())
+  })
+  
+  output$matrix_PCA <- renderPlot ({
+    pca_function(se_input = se_2())
+  })
+```
+

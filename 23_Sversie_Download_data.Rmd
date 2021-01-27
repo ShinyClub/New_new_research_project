@@ -1,0 +1,19 @@
+---
+title: "22_Sversie_Download_data"
+author: "Jelmer en Sanne"
+date: "27-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Download data tab
+We want to be able to download the data, this doesn't work yet.
+

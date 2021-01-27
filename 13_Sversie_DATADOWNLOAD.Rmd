@@ -1,0 +1,125 @@
+---
+title: "12-Sversie-datadownloading"
+author: "Jelmer en Sanne"
+date: "27-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Download function
+### The working code behind the application. 
+
+The download function is called the new download function, because we changed the orginal function to apply to different type of datasets, instead of one. The function should work for text and csv files. 
+
+The code below is the function for downloading de GSE dataset. The code is "split" to create a loop, so the entire dataset is downloaded. With "purr" a map is created to store the dataset. This way the dataset can be accessed easily. The last piece of the code downloads the dataset. 
+```{r}
+create_dir <- function(path) {}
+new_download_function <- function(gse_id_number) {
+  
+  datasets <- strsplit(gse_id_number, split = " ") %>% unlist
+  
+  full_paths <- file.path(here::here("data"), datasets)
+  
+  purrr::walk(
+    full_paths,
+    dir.create)
+  
+  data_1 <- map2(
+    .x  = datasets,
+    .y = full_paths,
+    getGEO,
+    GSEMatrix = TRUE,
+    filename = NULL
+    
+  )
+  
+  return(data_1)
+  
+}
+``` 
+
+### Shiny
+#### Server.R
+
+The dataset is downloaded with the new_download function. 
+```{r} 
+  gse_id_number <- eventReactive(input$action_gse_download, {
+    input$txt_gse_download
+  })
+  
+  gse_dataset <- reactive({
+    new_download_function(gse_id_number())
+  }) 
+```
+
+The output of the contents of the GSE dataset. This shows different platforms. Below this code the phenodata of the platform choice gets loaded into a variable. 
+```{r} 
+  output$txtout_gse_download <- renderPrint(print(gse_dataset()))
+  
+  phenodata <- eventReactive(input$action_select_platform, {
+    gse_dataset()[[input$select_platform]] %>% 
+      pData()
+  })    
+  
+  output$tbl_platform_preview <- DT::renderDataTable(
+    phenodata() %>%
+      select(geo_accession, organism_ch1, characteristics_ch1, supplementary_file_1)
+    ,
+    style = "bootstrap",
+    editable = TRUE,
+    server = TRUE
+  )
+```
+
+#### UI.R
+
+The code below creates a input box for downloading the GSE number of the dataset. The box below that shows the platforms that are in the dataset. Then the platform can be selected. The last box shows a bit of the phenodata so the user can decide what platform they want to use. 
+```{r}
+      tabItem(tabName = "download_dataset",
+              fluidRow(
+                box(
+                  title = "GEO dataset Downloading",
+                  width = "2",
+                  textInput("txt_gse_download", "Enter GEO accession number. Like GSE150646."),
+                  actionButton("action_gse_download", "Download this GSE dataset", icon("download", lib = "font-awesome")),
+                  actionButton("action_gse_download_txt", "Download this GSE dataset txt", icon("download", lib = "font-awesome"))
+                ),
+                
+               
+                box(
+                  title = "These platforms are in the dataset",
+                  width = "10",
+                  verbatimTextOutput("txtout_gse_download")
+                ),
+         
+                box(
+                  title = "Select the platform you want to use for this analysis:",
+                  width = "2",
+                  numericInput("select_platform", label = NULL, 1, 10, 1),
+                  actionButton("action_select_platform","load this (sub)dataset", icon("refresh"))
+                ),
+                
+              
+                box(
+                  title = "Small preview of the data that is inside the platform",
+                  width = "10",
+                  dataTableOutput("tbl_platform_preview")
+                )  
+                
+    ))
+```
+
+
+
+
+
+
+
+

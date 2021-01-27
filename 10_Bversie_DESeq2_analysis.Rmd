@@ -1,0 +1,69 @@
+---
+title: "09-DESeq2"
+author: "Jelmer"
+date: "25-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### DESeq2 analysis
+
+DESeq2 is a {package} that will be used to detect the dfference between genes and to visualize the data. The raw count data, so the raw samples, will be used as input. 
+
+The code below still has to be seperated for now it doesn't work proprely with the parameters. We are looking into methods to solve this issue. This function still needs to be manually changed with processing every new dataset. The non-working code is turned off. With this function the DESeq2 dataset will be created. 
+```{r}
+#condition <- (get(params$data1, params$data2))
+#ddsSE_csv_data <- DESeq2::DESeqDataSet(se_csv_data, design = formula(~{{params$data1}}, {{params$data2}}))
+ddsSE_csv_data <- DESeq2::DESeqDataSet(se_csv_data, design = formula(~dev_stage, genotype))
+```
+
+
+The function rowSums returns the sums of each row in the data set. The counts function will quickly count the unique values of more variables. 
+
+In the code chunck below the sums of the rows of the unique values of more variables in the DESeq2 data set are calculated. The calculated rows and the already calculated DESeq2 dataset are put in the word ddsSE_csv_data. 
+
+```{r}
+keep <- rowSums(counts(ddsSE_csv_data)) >= 10
+ddsSE_csv_data <- ddsSE_csv_data[keep,]
+```
+
+Below the differntial expression analysis is implemented.
+```{r}
+ddsDE_csv_data <- DESeq(ddsSE_csv_data)
+```
+
+Here the results of the analysis are transferred into the word res_csv_data. 
+```{r}
+res_csv_data <- results(ddsDE_csv_data)
+```
+
+This code will show the top genes. 
+```{r}
+res_csv_data[order(res_csv_data$padj), ] %>% head
+```
+
+The genes will be stored in a top 5 list for later use in the sequence alignment. 
+```{r}
+top5genes <- rownames(res_csv_data[order(res_csv_data$padj), ])[1:5]
+```
+
+The log fold change will be calculated and the resultNames will be put into the LFC function. 
+```{r}
+resultsNames(ddsDE_csv_data)
+```
+
+We also had some problems with automating the code below, this is still a work in progress. A Log 2 fold change is apllied. 
+```{r}
+resLFC_csv_data <- lfcShrink(ddsDE_csv_data, 
+                             coef = "dev_stage_age..5.months_vs_age..12.months"     )                       
+#coef="genotype_genotype..wildtype_vs_genotype..transgene.overexpressing.human.SNCA", type="apeglm")
+```
+

@@ -1,0 +1,12 @@
+---
+title: "23_conclusion_discussion"
+author: "Jelmer en Sanne"
+date: "27-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+# conclusion and discusion. 

@@ -1,0 +1,67 @@
+---
+title: "21_Sversie_Vulcan_plot"
+author: "Jelmer en Sanne"
+date: "27-1-2021"
+output: html_document
+params:
+  data1: dev_stage
+  data2: genotype
+  geo_dataset: GSE150646
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Vulcan plot code
+```{r}
+vulcan_function <-function(se_input) {
+  ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
+  #ddsSE <- DESeq2::DESeqDataSet(se, design = formula(~dev_stage + genotype))
+  
+  keep <- rowSums(counts(ddsSE)) >= 10
+  ddsSE <- ddsSE[keep,]
+  
+  #run differential expression analysis
+  ddsDE<- DESeq(ddsSE)
+  
+  #Results
+  res <- results(ddsDE)
+  head_res <- res[order(res$padj), ] %>% head
+  
+  top5genes <- rownames(res[order(res$padj), ])[1:5]
+  
+  resLFC <- lfcShrink(ddsDE, 
+                      coef = "dev_stage_age..5.months_vs_age..12.months"     )               
+  
+  Vulcan_iets  <-DESeq2::plotMA(resLFC, ylim=c(-2,2))
+  return(Vulcan_iets)
+}
+```
+
+
+#### Make vulcan plot
+```{r}
+box(
+            title = "Vulcan plot",
+            width = "10",
+            actionButton("calculate_Vulcan", "Vulcan"),
+            
+            box(
+              title = "This is a Vulcan plot",
+              width = "12",
+              plotOutput("matrix_Vulcan")
+            ))
+```
+
+```{r}
+#Vulcan
+ vulcan_plot <- eventReactive(input$calculate_Vulcan, {
+    vulcan_function(se_input = se_2())
+  })
+  
+  output$matrix_Vulcan <- renderPlot ({
+    vulcan_function(se_input = se_2())
+  })
+```
+

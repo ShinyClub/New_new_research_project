@@ -9,9 +9,7 @@ params:
   geo_dataset: GSE150646
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 
 ## Build summarized experiment function
@@ -20,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 In the code below we will create a function for building a summarized experiment. This function will be called "build_summ_exp_function_csv". To begin we will create the phenodata. The the colnames are then created by seperating the different characteristics of the dataset. By line 33 there is a path created where the data will be stored on the server. Here you can also see that the code is created for csv files. For furher research we will only need the raw counts from the dataset. These are isolated. At the end the metadata is created. The function return() wil return the results. 
 
 
-```{r}
+```{r eval= FALSE}
 build_summ_exp_function_csv <-function(gse_id_number){
   
   phenodata_data <- getGEO(gse_id_number) 
@@ -62,7 +60,7 @@ build_summ_exp_function_csv <-function(gse_id_number){
 #### Server.R 
 
 In the code below from the server, the created function for summarized experiment is used. The output of the code below is the assay data (raw counts) from the dataset. We renamed se to se_2, because the code wouldn't work if the name was the same as the se name in the function. 
-```{r}
+```{r eval= FALSE}
 se_2 <- eventReactive(input$build_sum_csv, {
      build_summ_exp_function_csv(gse_id_number())
       
@@ -80,7 +78,7 @@ se_2 <- eventReactive(input$build_sum_csv, {
 Below is the code for the tab that contains the summarized experiment. The checkboxGroupInput is turned off, because this wasn't working probaly. We wanted to add this in so that the user can change the chosen names. 
 The last box shows the selected colnames of the phenodata. 
 
-```{r}
+```{r eval= FALSE}
     tabItem(tabName = "build_summarized_experiment",
             verticalLayout(   
               

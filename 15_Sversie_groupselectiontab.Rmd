@@ -9,7 +9,6 @@ params:
   geo_dataset: GSE150646
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+## Groupselection tab
+wow hier kan je niets doen.  
 

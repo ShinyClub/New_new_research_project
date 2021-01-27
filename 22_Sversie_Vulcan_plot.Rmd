@@ -9,12 +9,8 @@ params:
   geo_dataset: GSE150646
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 #### Vulcan plot code
-```{r}
+```{r eval= FALSE}
 vulcan_function <-function(se_input) {
   ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
   #ddsSE <- DESeq2::DESeqDataSet(se, design = formula(~dev_stage + genotype))
@@ -41,7 +37,7 @@ vulcan_function <-function(se_input) {
 
 
 #### Make vulcan plot
-```{r}
+```{r eval= FALSE}
 box(
             title = "Vulcan plot",
             width = "10",
@@ -54,7 +50,7 @@ box(
             ))
 ```
 
-```{r}
+```{r eval= FALSE}
 #Vulcan
  vulcan_plot <- eventReactive(input$calculate_Vulcan, {
     vulcan_function(se_input = se_2())

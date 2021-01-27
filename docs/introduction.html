@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Introduction | A Minimal Book Example</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <title>Chapter 2 Introduction | A dashboard for data analysis</title>
+  <meta name="description" content="RNA seq." />
   <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Introduction | A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 2 Introduction | A dashboard for data analysis" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="RNA seq." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Introduction | A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 2 Introduction | A dashboard for data analysis" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="RNA seq." />
   
 
-<meta name="author" content="Yihui Xie" />
+<meta name="author" content="Sanne ne Jelmer" />
 
 
-<meta name="date" content="2021-01-26" />
+<meta name="date" content="2021-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="the-hardcode-the-beta-version-of-the-dashboard.html"/>
+<link rel="next" href="summary.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -111,14 +111,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html"><i class="fa fa-check"></i><b>3</b> The hardcode - the beta version of the dashboard</a><ul>
-<li class="chapter" data-level="3.0.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#get-the-first-data-of-the-experiment"><i class="fa fa-check"></i><b>3.0.1</b> Get the first data of the experiment</a></li>
-<li class="chapter" data-level="3.0.2" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#untar-the-data."><i class="fa fa-check"></i><b>3.0.2</b> Untar the data.</a></li>
-<li class="chapter" data-level="3.0.3" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#make-data-ready-for-summarizedexperiment-and-deseq2"><i class="fa fa-check"></i><b>3.0.3</b> Make data ready for SummarizedExperiment and DESeq2</a></li>
-<li class="chapter" data-level="3.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#inleiding-shiny-dashboard"><i class="fa fa-check"></i><b>3.1</b> inleiding shiny dashboard</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#make-deseq2-tab"><i class="fa fa-check"></i><b>3.1.1</b> Make DESeq2 tab</a></li>
+<li class="chapter" data-level="3" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>3</b> Summary</a></li>
+<li class="chapter" data-level="4" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html"><i class="fa fa-check"></i><b>4</b> The hardcode - the beta version of the dashboard</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#get-the-first-data-of-the-experiment"><i class="fa fa-check"></i><b>4.0.1</b> Get the first data of the experiment</a></li>
+<li class="chapter" data-level="4.0.2" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#untar-the-data."><i class="fa fa-check"></i><b>4.0.2</b> Untar the data.</a></li>
+<li class="chapter" data-level="4.0.3" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#make-data-ready-for-summarizedexperiment-and-deseq2"><i class="fa fa-check"></i><b>4.0.3</b> Make data ready for SummarizedExperiment and DESeq2</a></li>
+<li class="chapter" data-level="4.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#summarizedexperiment"><i class="fa fa-check"></i><b>4.1</b> SummarizedExperiment</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#deseq2-analysis"><i class="fa fa-check"></i><b>4.1.1</b> DESeq2 analysis</a></li>
+<li class="chapter" data-level="4.1.2" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#the-visualization-of-the-dataset"><i class="fa fa-check"></i><b>4.1.2</b> The visualization of the dataset</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html"><i class="fa fa-check"></i><b>5</b> inleiding shiny dashboard</a><ul>
+<li class="chapter" data-level="5.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#download-function"><i class="fa fa-check"></i><b>5.1</b> Download function</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#the-working-code-behind-the-application."><i class="fa fa-check"></i><b>5.1.1</b> The working code behind the application.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#shiny"><i class="fa fa-check"></i><b>5.1.2</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#downloading-supfiles-and-untarunzip-functions."><i class="fa fa-check"></i><b>5.2</b> Downloading supfiles and untar/unzip functions.</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#the-working-code-behind-the-application.-1"><i class="fa fa-check"></i><b>5.2.1</b> The working code behind the application.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#supplementary-files-download-and-make-assaydata-tab"><i class="fa fa-check"></i><b>5.3</b> Supplementary files download and make assaydata tab</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#shiny-1"><i class="fa fa-check"></i><b>5.3.1</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#groupselection-tab"><i class="fa fa-check"></i><b>5.4</b> Groupselection tab</a></li>
+<li class="chapter" data-level="5.5" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#build-summarized-experiment-function"><i class="fa fa-check"></i><b>5.5</b> Build summarized experiment function</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#the-working-code-behind-the-application.-2"><i class="fa fa-check"></i><b>5.5.1</b> The working code behind the application.</a></li>
+<li class="chapter" data-level="5.5.2" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#shiny-2"><i class="fa fa-check"></i><b>5.5.2</b> Shiny</a></li>
+<li class="chapter" data-level="5.5.3" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#make-deseq2-tab"><i class="fa fa-check"></i><b>5.5.3</b> Make DESeq2 tab</a></li>
+<li class="chapter" data-level="5.5.4" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#figures"><i class="fa fa-check"></i><b>5.5.4</b> Figures</a></li>
+<li class="chapter" data-level="5.5.5" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#download-data-tab"><i class="fa fa-check"></i><b>5.5.5</b> Download data tab</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusion-and-discusion-.html"><a href="conclusion-and-discusion-.html"><i class="fa fa-check"></i><b>6</b> conclusion and discusion.</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -131,7 +154,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A dashboard for data analysis</a>
           </h1>
         </div>
 
@@ -158,7 +181,7 @@ root &lt;-<span class="st"> </span><span class="kw">find_root_file</span>(<span 
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-hardcode-the-beta-version-of-the-dashboard.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="summary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -208,20 +231,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

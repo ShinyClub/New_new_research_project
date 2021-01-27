@@ -9,9 +9,7 @@ params:
   geo_dataset: GSE150646
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+## SummarizedExperiment 
 
 SummarizedExperiment is used for organising data. This package saves rectangular matrices from experimental results. The rows represent the characteristics of interest, typically genes and transcripts. The columns stand for the samples. ColData consits of samples and metadata. Metadata is data about data, so ColData contains extra information about the samples. 
 

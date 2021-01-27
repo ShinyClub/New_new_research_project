@@ -4,35 +4,35 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 The hardcode - the beta version of the dashboard | A Minimal Book Example</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <title>Chapter 4 The hardcode - the beta version of the dashboard | A dashboard for data analysis</title>
+  <meta name="description" content="RNA seq." />
   <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 The hardcode - the beta version of the dashboard | A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 4 The hardcode - the beta version of the dashboard | A dashboard for data analysis" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="RNA seq." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 The hardcode - the beta version of the dashboard | A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 4 The hardcode - the beta version of the dashboard | A dashboard for data analysis" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="RNA seq." />
   
 
-<meta name="author" content="Yihui Xie" />
+<meta name="author" content="Sanne ne Jelmer" />
 
 
-<meta name="date" content="2021-01-26" />
+<meta name="date" content="2021-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction.html"/>
-
+<link rel="prev" href="summary.html"/>
+<link rel="next" href="inleiding-shiny-dashboard.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -111,14 +111,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html"><i class="fa fa-check"></i><b>3</b> The hardcode - the beta version of the dashboard</a><ul>
-<li class="chapter" data-level="3.0.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#get-the-first-data-of-the-experiment"><i class="fa fa-check"></i><b>3.0.1</b> Get the first data of the experiment</a></li>
-<li class="chapter" data-level="3.0.2" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#untar-the-data."><i class="fa fa-check"></i><b>3.0.2</b> Untar the data.</a></li>
-<li class="chapter" data-level="3.0.3" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#make-data-ready-for-summarizedexperiment-and-deseq2"><i class="fa fa-check"></i><b>3.0.3</b> Make data ready for SummarizedExperiment and DESeq2</a></li>
-<li class="chapter" data-level="3.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#inleiding-shiny-dashboard"><i class="fa fa-check"></i><b>3.1</b> inleiding shiny dashboard</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#make-deseq2-tab"><i class="fa fa-check"></i><b>3.1.1</b> Make DESeq2 tab</a></li>
+<li class="chapter" data-level="3" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>3</b> Summary</a></li>
+<li class="chapter" data-level="4" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html"><i class="fa fa-check"></i><b>4</b> The hardcode - the beta version of the dashboard</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#get-the-first-data-of-the-experiment"><i class="fa fa-check"></i><b>4.0.1</b> Get the first data of the experiment</a></li>
+<li class="chapter" data-level="4.0.2" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#untar-the-data."><i class="fa fa-check"></i><b>4.0.2</b> Untar the data.</a></li>
+<li class="chapter" data-level="4.0.3" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#make-data-ready-for-summarizedexperiment-and-deseq2"><i class="fa fa-check"></i><b>4.0.3</b> Make data ready for SummarizedExperiment and DESeq2</a></li>
+<li class="chapter" data-level="4.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#summarizedexperiment"><i class="fa fa-check"></i><b>4.1</b> SummarizedExperiment</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#deseq2-analysis"><i class="fa fa-check"></i><b>4.1.1</b> DESeq2 analysis</a></li>
+<li class="chapter" data-level="4.1.2" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#the-visualization-of-the-dataset"><i class="fa fa-check"></i><b>4.1.2</b> The visualization of the dataset</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html"><i class="fa fa-check"></i><b>5</b> inleiding shiny dashboard</a><ul>
+<li class="chapter" data-level="5.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#download-function"><i class="fa fa-check"></i><b>5.1</b> Download function</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#the-working-code-behind-the-application."><i class="fa fa-check"></i><b>5.1.1</b> The working code behind the application.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#shiny"><i class="fa fa-check"></i><b>5.1.2</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#downloading-supfiles-and-untarunzip-functions."><i class="fa fa-check"></i><b>5.2</b> Downloading supfiles and untar/unzip functions.</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#the-working-code-behind-the-application.-1"><i class="fa fa-check"></i><b>5.2.1</b> The working code behind the application.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#supplementary-files-download-and-make-assaydata-tab"><i class="fa fa-check"></i><b>5.3</b> Supplementary files download and make assaydata tab</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#shiny-1"><i class="fa fa-check"></i><b>5.3.1</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#groupselection-tab"><i class="fa fa-check"></i><b>5.4</b> Groupselection tab</a></li>
+<li class="chapter" data-level="5.5" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#build-summarized-experiment-function"><i class="fa fa-check"></i><b>5.5</b> Build summarized experiment function</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#the-working-code-behind-the-application.-2"><i class="fa fa-check"></i><b>5.5.1</b> The working code behind the application.</a></li>
+<li class="chapter" data-level="5.5.2" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#shiny-2"><i class="fa fa-check"></i><b>5.5.2</b> Shiny</a></li>
+<li class="chapter" data-level="5.5.3" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#make-deseq2-tab"><i class="fa fa-check"></i><b>5.5.3</b> Make DESeq2 tab</a></li>
+<li class="chapter" data-level="5.5.4" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#figures"><i class="fa fa-check"></i><b>5.5.4</b> Figures</a></li>
+<li class="chapter" data-level="5.5.5" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#download-data-tab"><i class="fa fa-check"></i><b>5.5.5</b> Download data tab</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusion-and-discusion-.html"><a href="conclusion-and-discusion-.html"><i class="fa fa-check"></i><b>6</b> conclusion and discusion.</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -131,7 +154,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A dashboard for data analysis</a>
           </h1>
         </div>
 
@@ -140,7 +163,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="the-hardcode---the-beta-version-of-the-dashboard" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> The hardcode - the beta version of the dashboard</h1>
+<h1><span class="header-section-number">Chapter 4</span> The hardcode - the beta version of the dashboard</h1>
 <p>In this part we'll explain each part of our version of the dashboard. This chapter contains the following sub-chapters</p>
 <p>(hier dingen zoeken om het anders weer te geven, ook linkjes maken zodat je meteen naar dit hoofdstuk kan etc etc)</p>
 <p>Get the first data of the experiment : in this chapter the following things will be discussed and explained...</p>
@@ -153,7 +176,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The visualization of the dataset Heatmap PCA Histogram Vulcan-plot</p>
 
 <div id="get-the-first-data-of-the-experiment" class="section level3">
-<h3><span class="header-section-number">3.0.1</span> Get the first data of the experiment</h3>
+<h3><span class="header-section-number">4.0.1</span> Get the first data of the experiment</h3>
 <p>With the functions below the data from the selected experiment will be downloaded. The first steps are to collect the data of the experiment and the supplementary files (supp_files from now on). Inside the supp_files are the raw data of the experimnet, a supp_file can be any kind of file. For our project we've focused on csv files only.</p>
 <p>Before we can download the files we need to make a directory, this is for... . After that we need to make sure R knows what we want to work with. We can do this with PARAMS, you can find them at the top of the Rmarkdown documents. The params we use are geo_dataset(put the number of your experiemnt from NCBI_GEO (LINKJE)), params data1 and data2 will be explained later. When you want to analyze several experiments at the same time (not recommended) R needs to split the experiments, so it won't read the params as 1 experiment. We do this with the first code chunk, in this chunk, folders are also made for the (different) experiments</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#make a directory</span>
@@ -204,7 +227,7 @@ data_supp &lt;-<span class="st"> </span><span class="kw">map2</span>(
 
 </div>
 <div id="untar-the-data." class="section level3">
-<h3><span class="header-section-number">3.0.2</span> Untar the data.</h3>
+<h3><span class="header-section-number">4.0.2</span> Untar the data.</h3>
 <p>To untar the data we first need to tell R where to find the tarred files. We do this with the first line of code, this contains the location of the files. We only select the tarred files with the pattern function. We tell the map function with .x where to look for the tarred data and with .f to untar these files. The last thing we tell map to do is making a new folder. We do this with exdir, this is needed because in a tarred file there are several smaller files, they need a place to go.</p>
 <p>Because the location is now different, we made an unzip function inside the untar code chunk.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#To untar more files (from different geo_datasets doesn&#39;t work yet)</span>
@@ -221,7 +244,7 @@ list_for_unzipping &lt;-<span class="st"> </span><span class="kw">list.files</sp
 <pre><code>## list()</code></pre>
 
 <div id="unzipping-of-the-downloaded-data" class="section level4">
-<h4><span class="header-section-number">3.0.2.1</span> Unzipping of the downloaded data</h4>
+<h4><span class="header-section-number">4.0.2.1</span> Unzipping of the downloaded data</h4>
 <p>We start the same way as “untar the data”, we tell R where to find the zipped files and select them with the pattern “.gz”. The new map function will then unzip the files with function GEOquery::gunzip</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">files_zip &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> here<span class="op">::</span><span class="kw">here</span>(datasets), <span class="dt">full.names =</span> <span class="ot">TRUE</span>, <span class="dt">pattern =</span> <span class="st">&quot;.gz&quot;</span>)
 
@@ -234,9 +257,9 @@ unzipp &lt;-<span class="st"> </span><span class="kw">map</span>(
 </div>
 </div>
 <div id="make-data-ready-for-summarizedexperiment-and-deseq2" class="section level3">
-<h3><span class="header-section-number">3.0.3</span> Make data ready for SummarizedExperiment and DESeq2</h3>
+<h3><span class="header-section-number">4.0.3</span> Make data ready for SummarizedExperiment and DESeq2</h3>
 <div id="genarating-a-summarized-experiment-for-csv" class="section level4">
-<h4><span class="header-section-number">3.0.3.1</span> Genarating a summarized experiment for (CSV)</h4>
+<h4><span class="header-section-number">4.0.3.1</span> Genarating a summarized experiment for (CSV)</h4>
 <p>The first steps in making a summarized experiment are getting the phenodata and metadata. Before we do that we first check if we still have the correct data selected. The glimpse(datasets) should give the same output as your selected experiment (params geo_dataset) in this case that is GSE150646.</p>
 <p>After this quick check we want to know how to get to our data and make this easier. We see that that the data is saved in a folder inside a folder. To get to the data we need to do the same function twice, that’s why we called the first one 'pre'. Now we can easily ge our data with gse_csv.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#We look into the datasets to check if we have selected the experiments we want to work with. </span>
@@ -252,7 +275,7 @@ gse_csv &lt;-<span class="st"> </span>pre_gse_csv[[<span class="dv">1</span>]]
 <span class="kw">glimpse</span>(gse_csv)</code></pre></div>
 <pre><code>## Formal class &#39;ExpressionSet&#39; [package &quot;Biobase&quot;] with 7 slots
 ##   ..@ experimentData   :Formal class &#39;MIAME&#39; [package &quot;Biobase&quot;] with 13 slots
-##   ..@ assayData        :&lt;environment: 0x55ac81f4bc98&gt; 
+##   ..@ assayData        :&lt;environment: 0x5608e237d638&gt; 
 ##   ..@ phenoData        :Formal class &#39;AnnotatedDataFrame&#39; [package &quot;Biobase&quot;] with 4 slots
 ##   ..@ featureData      :Formal class &#39;AnnotatedDataFrame&#39; [package &quot;Biobase&quot;] with 4 slots
 ##   ..@ annotation       : chr &quot;GPL18694&quot;
@@ -324,7 +347,7 @@ samplenames_csv&lt;-<span class="st"> </span>phenodata_csv[<span class="dv">1</s
 
 </div>
 <div id="last-steps-before-summarizedexperiment" class="section level4">
-<h4><span class="header-section-number">3.0.3.2</span> Last steps before SummarizedExperiment</h4>
+<h4><span class="header-section-number">4.0.3.2</span> Last steps before SummarizedExperiment</h4>
 <p>Now we can load the CSV_file, you’ll see the first few counts inside the file. Check if the data file is a “data.frame.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Load the raw data from the csv data</span>
 load_csv_data &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> here<span class="op">::</span><span class="kw">here</span>(params<span class="op">$</span>geo_dataset), <span class="dt">full.names =</span> <span class="ot">TRUE</span>, <span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>)
@@ -403,15 +426,185 @@ raw_counts_csv_data_matrix &lt;-<span class="st"> </span><span class="kw">data.m
 
 </div>
 </div>
-<div id="inleiding-shiny-dashboard" class="section level2">
-<h2><span class="header-section-number">3.1</span> inleiding shiny dashboard</h2>
+<div id="summarizedexperiment" class="section level2">
+<h2><span class="header-section-number">4.1</span> SummarizedExperiment</h2>
+<p>SummarizedExperiment is used for organising data. This package saves rectangular matrices from experimental results. The rows represent the characteristics of interest, typically genes and transcripts. The columns stand for the samples. ColData consits of samples and metadata. Metadata is data about data, so ColData contains extra information about the samples.</p>
+<p>Here we will put a character factor in a word. The word now consits of the organised data of the raw sample data coming from the dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">se_csv_data &lt;-<span class="st"> </span><span class="kw">SummarizedExperiment</span>(<span class="dt">assays =</span> raw_counts_csv_data_matrix,
+                     <span class="dt">rowData =</span> rowdata_csv_data,
+                     <span class="dt">colData =</span> phenodata_csv)</code></pre></div>
+<p>Here we will ad the metadata manually because the SummarizedExperiment won't accept it otherwise. The $ function extracts elements from a named list, by heading.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">metadata</span>(se_csv_data)<span class="op">$</span>metadata &lt;-<span class="st"> </span>metadata </code></pre></div>
+<p>With the code below we will be able to inspect the SummarizedExperiment. The code &quot;head&quot; will make it possible to view the first part of the data frame.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">se_csv_data</code></pre></div>
+<pre><code>## class: SummarizedExperiment 
+## dim: 22299 20 
+## metadata(1): metadata
+## assays(1): &#39;&#39;
+## rownames: NULL
+## rowData names(0):
+## colnames(20): GSM4555720 GSM4555721 ... GSM4555738 GSM4555739
+## colData names(40): geo_accession status ... age:ch1 genotype:ch1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">assay</span>(se_csv_data))</code></pre></div>
+<pre><code>##      GSM4555720 GSM4555721 GSM4555722 GSM4555723 GSM4555724 GSM4555725
+## [1,]          0          1          0          1          1          2
+## [2,]          7          5          1          6          1          1
+## [3,]          0          0          1          0          0          0
+## [4,]          0          0          0          2          0          1
+## [5,]          0          2          0          0          0          0
+## [6,]       4001       3825       3810       4494       3934       4014
+##      GSM4555726 GSM4555727 GSM4555728 GSM4555729 GSM4555730 GSM4555731
+## [1,]          0          0          0          2          0          1
+## [2,]          2          1          2          2         10          6
+## [3,]          0          0          0          0          0          0
+## [4,]          1          0          2          1          1          4
+## [5,]          0          0          0          0          0          1
+## [6,]       4167       4254       4811       4462       4406       4883
+##      GSM4555732 GSM4555733 GSM4555734 GSM4555735 GSM4555736 GSM4555737
+## [1,]          0          2          1          0          0          2
+## [2,]          2          2          6          3          4          8
+## [3,]          0          0          0          0          0          2
+## [4,]          1          2          4          5          0          5
+## [5,]          0          0          0          0          0          0
+## [6,]       5092       4935       5546       5870       5646       5316
+##      GSM4555738 GSM4555739
+## [1,]          1          0
+## [2,]          7          2
+## [3,]          0          0
+## [4,]          6          4
+## [5,]          1          0
+## [6,]       4742       5534</code></pre>
+<div id="isee" class="section level4">
+<h4><span class="header-section-number">4.1.0.1</span> iSEE</h4>
+<p>This function can be used to explore the data stored in the SummarizedExperiment, like the row- and column-level metadata.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#iSEE test</span>
+<span class="co">#se_csv_iSEE &lt;- se_csv_data</span>
+<span class="co">#iSEE(se_csv_iSEE)</span></code></pre></div>
 
-<div id="deseq2-function" class="section level4">
-<h4><span class="header-section-number">3.1.0.1</span> Deseq2 function</h4>
 </div>
-<div id="make-deseq2-tab" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> Make DESeq2 tab</h3>
-<p>This page is quite simple, we make a box where the data will be rendered. With an actionbutton the user will be able to activate the &quot;deseq2_function&quot;</p>
+<div id="deseq2-analysis" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> DESeq2 analysis</h3>
+<p>DESeq2 is a {package} that will be used to detect the dfference between genes and to visualize the data. The raw count data, so the raw samples, will be used as input.</p>
+<p>The code below still has to be seperated for now it doesn't work proprely with the parameters. We are looking into methods to solve this issue. This function still needs to be manually changed with processing every new dataset. The non-working code is turned off. With this function the DESeq2 dataset will be created.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#condition &lt;- (get(params$data1, params$data2))</span>
+<span class="co">#ddsSE_csv_data &lt;- DESeq2::DESeqDataSet(se_csv_data, design = formula(~{{params$data1}}, {{params$data2}}))</span>
+ddsSE_csv_data &lt;-<span class="st"> </span>DESeq2<span class="op">::</span><span class="kw">DESeqDataSet</span>(se_csv_data, <span class="dt">design =</span> <span class="kw">formula</span>(<span class="op">~</span>dev_stage, genotype))</code></pre></div>
+<pre><code>## renaming the first element in assays to &#39;counts&#39;</code></pre>
+<pre><code>##   Note: levels of factors in the design contain characters other than
+##   letters, numbers, &#39;_&#39; and &#39;.&#39;. It is recommended (but not required) to use
+##   only letters, numbers, and delimiters &#39;_&#39; or &#39;.&#39;, as these are safe characters
+##   for column names in R. [This is a message, not an warning or error]</code></pre>
+<p>The function rowSums returns the sums of each row in the data set. The counts function will quickly count the unique values of more variables.</p>
+<p>In the code chunck below the sums of the rows of the unique values of more variables in the DESeq2 data set are calculated. The calculated rows and the already calculated DESeq2 dataset are put in the word ddsSE_csv_data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">keep &lt;-<span class="st"> </span><span class="kw">rowSums</span>(<span class="kw">counts</span>(ddsSE_csv_data)) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>
+ddsSE_csv_data &lt;-<span class="st"> </span>ddsSE_csv_data[keep,]</code></pre></div>
+<p>Below the differntial expression analysis is implemented.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ddsDE_csv_data &lt;-<span class="st"> </span><span class="kw">DESeq</span>(ddsSE_csv_data)</code></pre></div>
+<pre><code>## estimating size factors</code></pre>
+<pre><code>##   Note: levels of factors in the design contain characters other than
+##   letters, numbers, &#39;_&#39; and &#39;.&#39;. It is recommended (but not required) to use
+##   only letters, numbers, and delimiters &#39;_&#39; or &#39;.&#39;, as these are safe characters
+##   for column names in R. [This is a message, not an warning or error]</code></pre>
+<pre><code>## estimating dispersions</code></pre>
+<pre><code>## gene-wise dispersion estimates</code></pre>
+<pre><code>## mean-dispersion relationship</code></pre>
+<pre><code>##   Note: levels of factors in the design contain characters other than
+##   letters, numbers, &#39;_&#39; and &#39;.&#39;. It is recommended (but not required) to use
+##   only letters, numbers, and delimiters &#39;_&#39; or &#39;.&#39;, as these are safe characters
+##   for column names in R. [This is a message, not an warning or error]</code></pre>
+<pre><code>## final dispersion estimates</code></pre>
+<pre><code>##   Note: levels of factors in the design contain characters other than
+##   letters, numbers, &#39;_&#39; and &#39;.&#39;. It is recommended (but not required) to use
+##   only letters, numbers, and delimiters &#39;_&#39; or &#39;.&#39;, as these are safe characters
+##   for column names in R. [This is a message, not an warning or error]</code></pre>
+<pre><code>## fitting model and testing</code></pre>
+<pre><code>##   Note: levels of factors in the design contain characters other than
+##   letters, numbers, &#39;_&#39; and &#39;.&#39;. It is recommended (but not required) to use
+##   only letters, numbers, and delimiters &#39;_&#39; or &#39;.&#39;, as these are safe characters
+##   for column names in R. [This is a message, not an warning or error]</code></pre>
+<pre><code>## -- replacing outliers and refitting for 12 genes
+## -- DESeq argument &#39;minReplicatesForReplace&#39; = 7 
+## -- original counts are preserved in counts(dds)</code></pre>
+<pre><code>## estimating dispersions</code></pre>
+<pre><code>##   Note: levels of factors in the design contain characters other than
+##   letters, numbers, &#39;_&#39; and &#39;.&#39;. It is recommended (but not required) to use
+##   only letters, numbers, and delimiters &#39;_&#39; or &#39;.&#39;, as these are safe characters
+##   for column names in R. [This is a message, not an warning or error]</code></pre>
+<pre><code>## fitting model and testing</code></pre>
+<pre><code>##   Note: levels of factors in the design contain characters other than
+##   letters, numbers, &#39;_&#39; and &#39;.&#39;. It is recommended (but not required) to use
+##   only letters, numbers, and delimiters &#39;_&#39; or &#39;.&#39;, as these are safe characters
+##   for column names in R. [This is a message, not an warning or error]</code></pre>
+<p>Here the results of the analysis are transferred into the word res_csv_data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_csv_data &lt;-<span class="st"> </span><span class="kw">results</span>(ddsDE_csv_data)</code></pre></div>
+<p>This code will show the top genes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_csv_data[<span class="kw">order</span>(res_csv_data<span class="op">$</span>padj), ] <span class="op">%&gt;%</span><span class="st"> </span>head</code></pre></div>
+<pre><code>## log2 fold change (MLE): dev stage age..5.months vs age..12.months 
+## Wald test p-value: dev stage age..5.months vs age..12.months 
+## DataFrame with 6 rows and 6 columns
+##           baseMean     log2FoldChange              lfcSE              stat
+##          &lt;numeric&gt;          &lt;numeric&gt;          &lt;numeric&gt;         &lt;numeric&gt;
+## 1 192.815843867977  -1.24801787212202 0.0817109121555097 -15.2735765542163
+## 2 1777.06694763123 -0.590496392470499 0.0410800783419593 -14.3742762015954
+## 3 177.261598908197  -1.65284464482474  0.121787508012539 -13.5715449950299
+## 4 1524.26391611481 -0.642772186015504 0.0477993506231875 -13.4472995476992
+## 5 539.314440529911  -0.66136608389719 0.0528648054944776 -12.5105176820574
+## 6 27.0310540415811     -4.20774212721  0.336983986487428 -12.4864750134558
+##                 pvalue                 padj
+##              &lt;numeric&gt;            &lt;numeric&gt;
+## 1 1.14705424786208e-52 2.17687955159265e-48
+## 2 7.50505673470035e-47 7.12154833555717e-43
+## 3 5.90637914529913e-42 3.73637544731623e-38
+## 4 3.19322371432675e-41 1.51502499126233e-37
+## 5 6.53966334765167e-36 2.48219462023467e-32
+## 6 8.84880714361166e-36 2.79887769952437e-32</code></pre>
+<p>The genes will be stored in a top 5 list for later use in the sequence alignment.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">top5genes &lt;-<span class="st"> </span><span class="kw">rownames</span>(res_csv_data[<span class="kw">order</span>(res_csv_data<span class="op">$</span>padj), ])[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</code></pre></div>
+<p>The log fold change will be calculated and the resultNames will be put into the LFC function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">resultsNames</span>(ddsDE_csv_data)</code></pre></div>
+<pre><code>## [1] &quot;Intercept&quot;                                
+## [2] &quot;dev_stage_age..5.months_vs_age..12.months&quot;</code></pre>
+<p>We also had some problems with automating the code below, this is still a work in progress. A Log 2 fold change is apllied.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">resLFC_csv_data &lt;-<span class="st"> </span><span class="kw">lfcShrink</span>(ddsDE_csv_data, 
+                             <span class="dt">coef =</span> <span class="st">&quot;dev_stage_age..5.months_vs_age..12.months&quot;</span>     )                       </code></pre></div>
+<pre><code>## using &#39;normal&#39; for LFC shrinkage, the Normal prior from Love et al (2014).
+## 
+## Note that type=&#39;apeglm&#39; and type=&#39;ashr&#39; have shown to have less bias than type=&#39;normal&#39;.
+## See ?lfcShrink for more details on shrinkage type, and the DESeq2 vignette.
+## Reference: https://doi.org/10.1093/bioinformatics/bty895</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#coef=&quot;genotype_genotype..wildtype_vs_genotype..transgene.overexpressing.human.SNCA&quot;, type=&quot;apeglm&quot;)</span></code></pre></div>
+
+</div>
+<div id="the-visualization-of-the-dataset" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> The visualization of the dataset</h3>
+<p>The code below will plot a histogram, this histogram will show the distribution of the p-values calculated by the DESeq2 analyze.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">as</span>(res_csv_data, <span class="st">&quot;data.frame&quot;</span>), <span class="kw">aes</span>(<span class="dt">x =</span> pvalue)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="new_eindverslag_dashboard_sj_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>This code will create a volcano plot, a type of scatterplot, that will help by quickly identifying changes in the dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DESeq2<span class="op">::</span><span class="kw">plotMA</span>(resLFC_csv_data, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>))</code></pre></div>
+<p><img src="new_eindverslag_dashboard_sj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>Here a Principal Component Analysis (PCA) is created, a PCA is used to observe outliers, jumps, clusters and trends.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ddsDE_rlog_csv_data &lt;-<span class="st"> </span>ddsDE_csv_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">rlogTransformation</span>() 
+ddsDE_rlog_csv_data <span class="op">%&gt;%</span>
+<span class="st">  </span>DESeq2<span class="op">::</span><span class="kw">plotPCA</span>(<span class="dt">intgroup =</span> <span class="kw">c</span>(params<span class="op">$</span>data1 , params<span class="op">$</span>data2)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><img src="new_eindverslag_dashboard_sj_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>The code below creates a heatmap, this shows the extent of a phenomenon of the top 20 of up and down regulated genes as colour in two dimensions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matrix_results_csv &lt;-<span class="st"> </span><span class="kw">assay</span>(ddsDE_rlog_csv_data)
+ind &lt;-<span class="st"> </span>matrix_results_csv <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">rowMeans</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">order</span>(<span class="dt">decreasing =</span> <span class="ot">TRUE</span>) 
+top20 &lt;-<span class="st"> </span>matrix_results_csv[ind[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>],]
+annot_df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">colData</span>(ddsDE_csv_data)[,<span class="kw">c</span>(params<span class="op">$</span>data1 , params<span class="op">$</span>data2)])
+heatmap &lt;-<span class="st"> </span><span class="kw">pheatmap</span>(top20,
+                    <span class="dt">scale =</span> <span class="st">&quot;row&quot;</span>, 
+                    <span class="dt">annotation_col =</span> annot_df)
+heatmap</code></pre></div>
+<p><img src="new_eindverslag_dashboard_sj_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -421,8 +614,8 @@ raw_counts_csv_data_matrix &lt;-<span class="st"> </span><span class="kw">data.m
           </div>
         </div>
       </div>
-<a href="introduction.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="summary.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inleiding-shiny-dashboard.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -472,20 +665,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

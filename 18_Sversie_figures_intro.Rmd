@@ -9,14 +9,11 @@ params:
   geo_dataset: GSE150646
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ### Figures
 Inside the figure tab we need to make boxes so the figures have a place to go, we also have to make an actionbutton so only the figures you want will be displayed. For now this doesn't work. Pressing one button will give you all the figures. This will give a long loading time, so we want to add a loading barr.
 
-```{r eval=FALSE, include=FALSE  }
+```{r eval= FALSE}
 #figures tab UI
 tabItem(tabName = "make_figures",
         fluidRow(
@@ -68,7 +65,7 @@ tabItem(tabName = "make_figures",
             ))
 ```
 
-```{r eval=FALSE, include=FALSE }
+```{r eval= FALSE }
 #figures tab server 
 #PCA plot maken
   pca_plot <- eventReactive(input$calculate_PCA, {

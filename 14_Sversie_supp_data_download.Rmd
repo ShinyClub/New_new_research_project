@@ -9,15 +9,13 @@ params:
   geo_dataset: GSE150646
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 ## Downloading supfiles and untar/unzip functions. 
 ### The working code behind the application. 
 
 The code for downloading the supfiles is really simmilar to the download function. Only it loads the supdata, instead of the entire dataset. 
-```{r}
+```{r eval= FALSE}
 new_supp_download_fucntion <- function(gse_id_number) {
   
   datasets <- strsplit(gse_id_number, split = " ") %>% unlist
@@ -39,7 +37,7 @@ new_supp_download_fucntion <- function(gse_id_number) {
 ```
    
 This is the old function that is used to unzip and untar the GSE dataset. 
-```{r}
+```{r eval= FALSE}
 untar_unzip_function <- function(gse_id_number){
   
   #list files that are in the supp files directory 
@@ -73,7 +71,7 @@ return(filenames)
 ```
 
 The new unzip function is created. We used this function to unzip the CSV data files.    
-```{r}
+```{r eval= FALSE}
 new_unzip_function <- function(gse_id_number) {
   
   datasets <- strsplit(gse_id_number, split = " ") %>% unlist
@@ -97,7 +95,7 @@ new_unzip_function <- function(gse_id_number) {
 #### Server.R  
 
 This is the code used in the server to load the supp files and untar and unzip the data. This code isn't working proprely, one line off code is turned off, because we couldn't create a code that can load the supp files of both text files and CSV files. 
-```{r}   
+```{r eval= FALSE}   
   #Choose what data will be downloaded
     supp_files_csv <- eventReactive(input$action_download_supp_files_csv, {
     new_supp_download_fucntion(gse_id_number())
@@ -118,7 +116,7 @@ This is the code used in the server to load the supp files and untar and unzip t
 ```
 
 #### UI.R
-```{r}
+```{r eval= FALSE}
  tabItem(tabName = "supp_files_assay_data",
             fluidRow(
               

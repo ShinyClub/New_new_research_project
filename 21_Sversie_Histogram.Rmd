@@ -9,12 +9,9 @@ params:
   geo_dataset: GSE150646
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 #### Histogram code
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 geom_histogram_function <- function(se_input) {
   
   #We need to do the first steps of the DESeq2 again, we are looking for a solution to make this easier
@@ -42,7 +39,7 @@ geom_histogram_function <- function(se_input) {
 
 
 #### Make histogram figure
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 box(
             title = "Histogram",
             width = "10",
@@ -55,7 +52,7 @@ box(
             ))
 ```
 
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 #Histogram
   histogram_plot <- eventReactive(input$calculate_histogram, {
     geom_histogram_function(se_input = se_2())

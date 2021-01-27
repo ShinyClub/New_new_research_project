@@ -9,9 +9,6 @@ params:
   geo_dataset: GSE150646
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## Download function
 ### The working code behind the application. 
@@ -19,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 The download function is called the new download function, because we changed the orginal function to apply to different type of datasets, instead of one. The function should work for text and csv files. 
 
 The code below is the function for downloading de GSE dataset. The code is "split" to create a loop, so the entire dataset is downloaded. With "purr" a map is created to store the dataset. This way the dataset can be accessed easily. The last piece of the code downloads the dataset. 
-```{r}
+```{r eval= FALSE}
 create_dir <- function(path) {}
 new_download_function <- function(gse_id_number) {
   
@@ -49,7 +46,7 @@ new_download_function <- function(gse_id_number) {
 #### Server.R
 
 The dataset is downloaded with the new_download function. 
-```{r} 
+```{r eval= FALSE} 
   gse_id_number <- eventReactive(input$action_gse_download, {
     input$txt_gse_download
   })
@@ -60,7 +57,7 @@ The dataset is downloaded with the new_download function.
 ```
 
 The output of the contents of the GSE dataset. This shows different platforms. Below this code the phenodata of the platform choice gets loaded into a variable. 
-```{r} 
+```{r eval= FALSE} 
   output$txtout_gse_download <- renderPrint(print(gse_dataset()))
   
   phenodata <- eventReactive(input$action_select_platform, {
@@ -81,7 +78,7 @@ The output of the contents of the GSE dataset. This shows different platforms. B
 #### UI.R
 
 The code below creates a input box for downloading the GSE number of the dataset. The box below that shows the platforms that are in the dataset. Then the platform can be selected. The last box shows a bit of the phenodata so the user can decide what platform they want to use. 
-```{r}
+```{r eval= FALSE}
       tabItem(tabName = "download_dataset",
               fluidRow(
                 box(

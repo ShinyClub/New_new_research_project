@@ -10,7 +10,7 @@ params:
 ---
 
 #### Heatmap function
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 heatmap_function <- function(se_input){
   #First part is the deseq2 function again
   ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
@@ -45,7 +45,7 @@ heatmap_function <- function(se_input){
 
 #### Make heatmap figure of top 20
 
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 box(
               title = "Heatmap",
               width = "10",
@@ -58,7 +58,7 @@ box(
               ))
 ```
 
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 #Heatmap maken
   heatmap_plot <- eventReactive(input$calculate_heatmap, {
     heatmap_function(se_input = se_2())

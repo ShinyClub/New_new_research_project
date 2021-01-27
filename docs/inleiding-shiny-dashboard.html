@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 inleiding shiny dashboard | A dashboard for data analysis</title>
+  <meta name="description" content="RNA seq." />
+  <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 inleiding shiny dashboard | A dashboard for data analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="RNA seq." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 inleiding shiny dashboard | A dashboard for data analysis" />
+  
+  <meta name="twitter:description" content="RNA seq." />
+  
+
+<meta name="author" content="Sanne ne Jelmer" />
+
+
+<meta name="date" content="2021-01-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-hardcode-the-beta-version-of-the-dashboard.html"/>
+<link rel="next" href="conclusion-and-discusion-.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="chapter" data-level="3" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>3</b> Summary</a></li>
+<li class="chapter" data-level="4" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html"><i class="fa fa-check"></i><b>4</b> The hardcode - the beta version of the dashboard</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#get-the-first-data-of-the-experiment"><i class="fa fa-check"></i><b>4.0.1</b> Get the first data of the experiment</a></li>
+<li class="chapter" data-level="4.0.2" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#untar-the-data."><i class="fa fa-check"></i><b>4.0.2</b> Untar the data.</a></li>
+<li class="chapter" data-level="4.0.3" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#make-data-ready-for-summarizedexperiment-and-deseq2"><i class="fa fa-check"></i><b>4.0.3</b> Make data ready for SummarizedExperiment and DESeq2</a></li>
+<li class="chapter" data-level="4.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#summarizedexperiment"><i class="fa fa-check"></i><b>4.1</b> SummarizedExperiment</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#deseq2-analysis"><i class="fa fa-check"></i><b>4.1.1</b> DESeq2 analysis</a></li>
+<li class="chapter" data-level="4.1.2" data-path="the-hardcode-the-beta-version-of-the-dashboard.html"><a href="the-hardcode-the-beta-version-of-the-dashboard.html#the-visualization-of-the-dataset"><i class="fa fa-check"></i><b>4.1.2</b> The visualization of the dataset</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html"><i class="fa fa-check"></i><b>5</b> inleiding shiny dashboard</a><ul>
+<li class="chapter" data-level="5.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#download-function"><i class="fa fa-check"></i><b>5.1</b> Download function</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#the-working-code-behind-the-application."><i class="fa fa-check"></i><b>5.1.1</b> The working code behind the application.</a></li>
+<li class="chapter" data-level="5.1.2" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#shiny"><i class="fa fa-check"></i><b>5.1.2</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#downloading-supfiles-and-untarunzip-functions."><i class="fa fa-check"></i><b>5.2</b> Downloading supfiles and untar/unzip functions.</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#the-working-code-behind-the-application.-1"><i class="fa fa-check"></i><b>5.2.1</b> The working code behind the application.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#supplementary-files-download-and-make-assaydata-tab"><i class="fa fa-check"></i><b>5.3</b> Supplementary files download and make assaydata tab</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#shiny-1"><i class="fa fa-check"></i><b>5.3.1</b> Shiny</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#groupselection-tab"><i class="fa fa-check"></i><b>5.4</b> Groupselection tab</a></li>
+<li class="chapter" data-level="5.5" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#build-summarized-experiment-function"><i class="fa fa-check"></i><b>5.5</b> Build summarized experiment function</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#the-working-code-behind-the-application.-2"><i class="fa fa-check"></i><b>5.5.1</b> The working code behind the application.</a></li>
+<li class="chapter" data-level="5.5.2" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#shiny-2"><i class="fa fa-check"></i><b>5.5.2</b> Shiny</a></li>
+<li class="chapter" data-level="5.5.3" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#make-deseq2-tab"><i class="fa fa-check"></i><b>5.5.3</b> Make DESeq2 tab</a></li>
+<li class="chapter" data-level="5.5.4" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#figures"><i class="fa fa-check"></i><b>5.5.4</b> Figures</a></li>
+<li class="chapter" data-level="5.5.5" data-path="inleiding-shiny-dashboard.html"><a href="inleiding-shiny-dashboard.html#download-data-tab"><i class="fa fa-check"></i><b>5.5.5</b> Download data tab</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusion-and-discusion-.html"><a href="conclusion-and-discusion-.html"><i class="fa fa-check"></i><b>6</b> conclusion and discusion.</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A dashboard for data analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="inleiding-shiny-dashboard" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> inleiding shiny dashboard</h1>
+<p>woaah dashboard</p>
+
+<div id="download-function" class="section level2">
+<h2><span class="header-section-number">5.1</span> Download function</h2>
+<div id="the-working-code-behind-the-application." class="section level3">
+<h3><span class="header-section-number">5.1.1</span> The working code behind the application.</h3>
+<p>The download function is called the new download function, because we changed the orginal function to apply to different type of datasets, instead of one. The function should work for text and csv files.</p>
+<p>The code below is the function for downloading de GSE dataset. The code is &quot;split&quot; to create a loop, so the entire dataset is downloaded. With &quot;purr&quot; a map is created to store the dataset. This way the dataset can be accessed easily. The last piece of the code downloads the dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">create_dir &lt;-<span class="st"> </span><span class="cf">function</span>(path) {}
+new_download_function &lt;-<span class="st"> </span><span class="cf">function</span>(gse_id_number) {
+  
+  datasets &lt;-<span class="st"> </span><span class="kw">strsplit</span>(gse_id_number, <span class="dt">split =</span> <span class="st">&quot; &quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>unlist
+  
+  full_paths &lt;-<span class="st"> </span><span class="kw">file.path</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>), datasets)
+  
+  purrr<span class="op">::</span><span class="kw">walk</span>(
+    full_paths,
+    dir.create)
+  
+  data_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">map2</span>(
+    <span class="dt">.x  =</span> datasets,
+    <span class="dt">.y =</span> full_paths,
+    getGEO,
+    <span class="dt">GSEMatrix =</span> <span class="ot">TRUE</span>,
+    <span class="dt">filename =</span> <span class="ot">NULL</span>
+    
+  )
+  
+  <span class="kw">return</span>(data_<span class="dv">1</span>)
+  
+}</code></pre></div>
+</div>
+<div id="shiny" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Shiny</h3>
+<div id="server.r" class="section level4">
+<h4><span class="header-section-number">5.1.2.1</span> Server.R</h4>
+<p>The dataset is downloaded with the new_download function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  gse_id_number &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>action_gse_download, {
+    input<span class="op">$</span>txt_gse_download
+  })
+  
+  gse_dataset &lt;-<span class="st"> </span><span class="kw">reactive</span>({
+    <span class="kw">new_download_function</span>(<span class="kw">gse_id_number</span>())
+  }) </code></pre></div>
+<p>The output of the contents of the GSE dataset. This shows different platforms. Below this code the phenodata of the platform choice gets loaded into a variable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  output<span class="op">$</span>txtout_gse_download &lt;-<span class="st"> </span><span class="kw">renderPrint</span>(<span class="kw">print</span>(<span class="kw">gse_dataset</span>()))
+  
+  phenodata &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>action_select_platform, {
+    <span class="kw">gse_dataset</span>()[[input<span class="op">$</span>select_platform]] <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">      </span><span class="kw">pData</span>()
+  })    
+  
+  output<span class="op">$</span>tbl_platform_preview &lt;-<span class="st"> </span>DT<span class="op">::</span><span class="kw">renderDataTable</span>(
+    <span class="kw">phenodata</span>() <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">select</span>(geo_accession, organism_ch1, characteristics_ch1, supplementary_file_<span class="dv">1</span>)
+    ,
+    <span class="dt">style =</span> <span class="st">&quot;bootstrap&quot;</span>,
+    <span class="dt">editable =</span> <span class="ot">TRUE</span>,
+    <span class="dt">server =</span> <span class="ot">TRUE</span>
+  )</code></pre></div>
+</div>
+<div id="ui.r" class="section level4">
+<h4><span class="header-section-number">5.1.2.2</span> UI.R</h4>
+<p>The code below creates a input box for downloading the GSE number of the dataset. The box below that shows the platforms that are in the dataset. Then the platform can be selected. The last box shows a bit of the phenodata so the user can decide what platform they want to use.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">      <span class="kw">tabItem</span>(<span class="dt">tabName =</span> <span class="st">&quot;download_dataset&quot;</span>,
+              <span class="kw">fluidRow</span>(
+                <span class="kw">box</span>(
+                  <span class="dt">title =</span> <span class="st">&quot;GEO dataset Downloading&quot;</span>,
+                  <span class="dt">width =</span> <span class="st">&quot;2&quot;</span>,
+                  <span class="kw">textInput</span>(<span class="st">&quot;txt_gse_download&quot;</span>, <span class="st">&quot;Enter GEO accession number. Like GSE150646.&quot;</span>),
+                  <span class="kw">actionButton</span>(<span class="st">&quot;action_gse_download&quot;</span>, <span class="st">&quot;Download this GSE dataset&quot;</span>, <span class="kw">icon</span>(<span class="st">&quot;download&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>)),
+                  <span class="kw">actionButton</span>(<span class="st">&quot;action_gse_download_txt&quot;</span>, <span class="st">&quot;Download this GSE dataset txt&quot;</span>, <span class="kw">icon</span>(<span class="st">&quot;download&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>))
+                ),
+                
+               
+                <span class="kw">box</span>(
+                  <span class="dt">title =</span> <span class="st">&quot;These platforms are in the dataset&quot;</span>,
+                  <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+                  <span class="kw">verbatimTextOutput</span>(<span class="st">&quot;txtout_gse_download&quot;</span>)
+                ),
+         
+                <span class="kw">box</span>(
+                  <span class="dt">title =</span> <span class="st">&quot;Select the platform you want to use for this analysis:&quot;</span>,
+                  <span class="dt">width =</span> <span class="st">&quot;2&quot;</span>,
+                  <span class="kw">numericInput</span>(<span class="st">&quot;select_platform&quot;</span>, <span class="dt">label =</span> <span class="ot">NULL</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">1</span>),
+                  <span class="kw">actionButton</span>(<span class="st">&quot;action_select_platform&quot;</span>,<span class="st">&quot;load this (sub)dataset&quot;</span>, <span class="kw">icon</span>(<span class="st">&quot;refresh&quot;</span>))
+                ),
+                
+              
+                <span class="kw">box</span>(
+                  <span class="dt">title =</span> <span class="st">&quot;Small preview of the data that is inside the platform&quot;</span>,
+                  <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+                  <span class="kw">dataTableOutput</span>(<span class="st">&quot;tbl_platform_preview&quot;</span>)
+                )  
+                
+    ))</code></pre></div>
+
+</div>
+</div>
+</div>
+<div id="downloading-supfiles-and-untarunzip-functions." class="section level2">
+<h2><span class="header-section-number">5.2</span> Downloading supfiles and untar/unzip functions.</h2>
+<div id="the-working-code-behind-the-application.-1" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> The working code behind the application.</h3>
+<p>The code for downloading the supfiles is really simmilar to the download function. Only it loads the supdata, instead of the entire dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_supp_download_fucntion &lt;-<span class="st"> </span><span class="cf">function</span>(gse_id_number) {
+  
+  datasets &lt;-<span class="st"> </span><span class="kw">strsplit</span>(gse_id_number, <span class="dt">split =</span> <span class="st">&quot; &quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>unlist
+  
+  full_paths &lt;-<span class="st"> </span><span class="kw">file.path</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>), datasets)  
+  
+  data_supp &lt;-<span class="st"> </span><span class="kw">map2</span>(
+    <span class="dt">.x  =</span> datasets,
+    <span class="dt">.y =</span> full_paths,
+    getGEOSuppFiles,
+    <span class="dt">makeDirectory =</span> <span class="ot">FALSE</span>, 
+    <span class="co">#baseDir = getwd(),</span>
+    <span class="dt">fetch_files =</span> <span class="ot">TRUE</span>, 
+    <span class="dt">filter_regex =</span> <span class="ot">NULL</span>
+  ) 
+  <span class="kw">return</span>(data_supp)
+  
+}</code></pre></div>
+<p>This is the old function that is used to unzip and untar the GSE dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">untar_unzip_function &lt;-<span class="st"> </span><span class="cf">function</span>(gse_id_number){
+  
+  <span class="co">#list files that are in the supp files directory </span>
+  files &lt;-<span class="st"> </span><span class="kw">list.files</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, gse_id_number), <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+  
+  <span class="co">#look for .tar extension and use this value to subset the list</span>
+  tar_files &lt;-<span class="st"> </span><span class="kw">str_subset</span>(files, <span class="st">&quot;.tar&quot;</span>)
+  
+  <span class="co">#loop through the list and untar the files</span>
+  <span class="cf">for</span> (x <span class="cf">in</span> tar_files){
+    <span class="kw">untar</span>(x, <span class="dt">exdir =</span> <span class="kw">file.path</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, gse_id_number)))
+  }
+  
+  <span class="co">#remove tar files because we are done with them</span>
+  <span class="kw">file.remove</span>(tar_files)
+  
+  <span class="co">#look again at the files that are now in the directory and list them</span>
+  files &lt;-<span class="st"> </span><span class="kw">list.files</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, gse_id_number), <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+  
+  <span class="co">#determine what files are zipped </span>
+  gz_files &lt;-<span class="st"> </span><span class="kw">str_subset</span>(files, <span class="st">&quot;.gz&quot;</span>)
+  
+  <span class="co">#loop through the list and unzip the files</span>
+  <span class="cf">for</span> (x <span class="cf">in</span> gz_files){
+    <span class="kw">gunzip</span>(x)
+  }
+  
+  filenames &lt;-<span class="st"> </span><span class="kw">list.files</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, gse_id_number))
+<span class="kw">return</span>(filenames)
+}</code></pre></div>
+<p>The new unzip function is created. We used this function to unzip the CSV data files.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_unzip_function &lt;-<span class="st"> </span><span class="cf">function</span>(gse_id_number) {
+  
+  datasets &lt;-<span class="st"> </span><span class="kw">strsplit</span>(gse_id_number, <span class="dt">split =</span> <span class="st">&quot; &quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>unlist
+  
+  full_paths &lt;-<span class="st"> </span><span class="kw">file.path</span>(here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>), datasets) 
+  
+  files_zip &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, datasets), <span class="dt">full.names =</span> <span class="ot">TRUE</span>, <span class="dt">pattern =</span> <span class="st">&quot;.gz&quot;</span>)
+  unzipp &lt;-<span class="st"> </span><span class="kw">map</span>(
+    <span class="dt">.x =</span> files_zip,
+    <span class="dt">.f =</span> GEOquery<span class="op">::</span>gunzip
+  )
+  
+  <span class="kw">return</span>(files_zip)
+}   </code></pre></div>
+</div>
+</div>
+<div id="supplementary-files-download-and-make-assaydata-tab" class="section level2">
+<h2><span class="header-section-number">5.3</span> Supplementary files download and make assaydata tab</h2>
+<div id="shiny-1" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Shiny</h3>
+<div id="server.r-1" class="section level4">
+<h4><span class="header-section-number">5.3.1.1</span> Server.R</h4>
+<p>This is the code used in the server to load the supp files and untar and unzip the data. This code isn't working proprely, one line off code is turned off, because we couldn't create a code that can load the supp files of both text files and CSV files.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co">#Choose what data will be downloaded</span>
+    supp_files_csv &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>action_download_supp_files_csv, {
+    <span class="kw">new_supp_download_fucntion</span>(<span class="kw">gse_id_number</span>())
+  })
+  
+  <span class="co">#Show a list of supp files found in the folder</span>
+  
+   output<span class="op">$</span>list_of_downloaded_files &lt;-<span class="st"> </span><span class="kw">renderTable</span>(<span class="kw">supp_files_csv</span>())
+ <span class="co"># output$list_of_downloaded_files &lt;- renderTable(supp_files_txt())</span>
+  
+  <span class="co">#Untar and unzip the dataset. </span>
+  <span class="kw">observeEvent</span>(input<span class="op">$</span>action_untar_unzip_supp_files_csv, {
+    <span class="kw">new_unzip_function</span>(<span class="kw">gse_id_number</span>())
+  })
+  <span class="kw">observeEvent</span>(input<span class="op">$</span>action_untar_unzip_supp_files_txt, {
+    <span class="kw">untar_unzip_function</span>(<span class="kw">gse_id_number</span>())
+  })</code></pre></div>
+</div>
+<div id="ui.r-1" class="section level4">
+<h4><span class="header-section-number">5.3.1.2</span> UI.R</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"> <span class="kw">tabItem</span>(<span class="dt">tabName =</span> <span class="st">&quot;supp_files_assay_data&quot;</span>,
+            <span class="kw">fluidRow</span>(
+              
+              <span class="co">#select what columns to view</span>
+              <span class="kw">box</span>(
+                <span class="dt">title =</span> <span class="st">&quot;download the supplementary files&quot;</span>,
+                <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+                <span class="kw">actionButton</span>(<span class="st">&quot;action_download_supp_files_csv&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;download supp files (CSV)&quot;</span>, <span class="kw">icon</span>(<span class="st">&quot;download&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>)),
+                <span class="kw">actionButton</span>(<span class="st">&quot;action_download_supp_files_tsv&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;download supp files (TSV)&quot;</span>, <span class="kw">icon</span>(<span class="st">&quot;download&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>)),
+                <span class="kw">actionButton</span>(<span class="st">&quot;action_download_supp_files_txt&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;download supp files (txt)&quot;</span>, <span class="kw">icon</span>(<span class="st">&quot;download&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>)),
+                <span class="kw">actionButton</span>(<span class="st">&quot;action_download_supp_files_etc&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;download supp files (etc)&quot;</span>, <span class="kw">icon</span>(<span class="st">&quot;download&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>))
+                
+                
+                
+              ),
+              
+              <span class="co">#show a list of supp files found in the folder</span>
+              <span class="kw">box</span>(
+                <span class="dt">title =</span> <span class="st">&quot;Show a list of supplementary files that have been downloaded.&quot;</span>,
+                <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+                <span class="kw">tableOutput</span>(<span class="st">&quot;list_of_downloaded_files&quot;</span>)
+              ),
+            
+              <span class="co">#untar and unzip </span>
+              <span class="kw">box</span>(
+                <span class="dt">title =</span> <span class="st">&quot;untar and unzip files&quot;</span>,
+                <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+                <span class="kw">actionButton</span>(<span class="st">&quot;action_untar_unzip_supp_files_csv&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;untar and unzip supp files csv&quot;</span>, <span class="kw">icon</span>(<span class="st">&quot;download&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>)),
+                <span class="kw">actionButton</span>(<span class="st">&quot;action_untar_unzip_supp_files_txt&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;untar and unzip supp files txt&quot;</span>, <span class="kw">icon</span>(<span class="st">&quot;download&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>))
+                
+                ),
+              
+              <span class="co">#show files that have been untarred and unzipped</span>
+              <span class="kw">box</span>(
+                <span class="dt">title =</span> <span class="st">&quot;Show a list of supplementary files that have been unzipped.&quot;</span>,
+                <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+                <span class="kw">verbatimTextOutput</span>(<span class="st">&quot;list_of_untarred_files&quot;</span>)
+              ),
+              
+              
+              <span class="co">#Sample selection box, this uses names of files that are in the data --&gt; &quot;GSE###### folder&quot;. The boxes that are selected will be saved to input$sample_choices. </span>
+              <span class="kw">box</span>(
+                <span class="dt">title =</span> <span class="st">&quot;Select samples&quot;</span>,
+                <span class="dt">width =</span> <span class="st">&quot;3&quot;</span>,
+                <span class="kw">uiOutput</span>(<span class="st">&quot;sample_choices&quot;</span>)
+              ),
+              
+              <span class="kw">fluidRow</span>(
+                <span class="kw">box</span>(
+                  <span class="dt">width =</span> <span class="dv">10</span>,
+                  <span class="st">&quot;Is the sample selection box empty? This is likely due to the folder being empty at the time the GSE number was entered. To fix this simply go to the &#39;download dataset&#39; tab and click another time on the &#39;download this GSE dataset&#39; button. </span>
+<span class="st">                  The sample selection boxes should now appear. To fix this problem some sort of &#39;refresh&#39; button needs to be coded but this is not very straight-forward when submitButtons can not be used.&quot;</span>
+                ))
+              
+              
+              
+              ))</code></pre></div>
+
+</div>
+</div>
+</div>
+<div id="groupselection-tab" class="section level2">
+<h2><span class="header-section-number">5.4</span> Groupselection tab</h2>
+<p>wow hier kan je niets doen.</p>
+
+</div>
+<div id="build-summarized-experiment-function" class="section level2">
+<h2><span class="header-section-number">5.5</span> Build summarized experiment function</h2>
+<div id="the-working-code-behind-the-application.-2" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> The working code behind the application.</h3>
+<p>In the code below we will create a function for building a summarized experiment. This function will be called &quot;build_summ_exp_function_csv&quot;. To begin we will create the phenodata. The the colnames are then created by seperating the different characteristics of the dataset. By line 33 there is a path created where the data will be stored on the server. Here you can also see that the code is created for csv files. For furher research we will only need the raw counts from the dataset. These are isolated. At the end the metadata is created. The function return() wil return the results.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">build_summ_exp_function_csv &lt;-<span class="cf">function</span>(gse_id_number){
+  
+  phenodata_data &lt;-<span class="st"> </span><span class="kw">getGEO</span>(gse_id_number) 
+  phenodata_tbl &lt;-<span class="st"> </span><span class="kw">map_df</span>(phenodata_data,
+                          pData) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as_tibble</span>()
+  
+  <span class="kw">colnames</span>(phenodata_tbl)[<span class="dv">11</span>] &lt;-<span class="st"> &quot;dev_stage&quot;</span>
+  <span class="kw">colnames</span>(phenodata_tbl)[<span class="dv">12</span>] &lt;-<span class="st"> &quot;genotype&quot;</span>
+  
+  
+  phenodata_csv &lt;-<span class="st"> </span>phenodata_tbl[<span class="dv">2</span><span class="op">:</span><span class="dv">41</span>]
+  
+  samplenames_csv&lt;-<span class="st"> </span>phenodata_tbl[<span class="dv">1</span>]
+  
+  load_csv_data &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path =</span> here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, gse_id_number), <span class="dt">full.names =</span> <span class="ot">TRUE</span>, <span class="dt">pattern =</span> <span class="st">&quot;.csv&quot;</span>)
+  
+  csv_data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(load_csv_data)
+  
+  raw_counts_csv_data &lt;-<span class="st"> </span>csv_data[<span class="dv">2</span><span class="op">:</span><span class="dv">21</span>]
+  
+  raw_counts_csv_data_matrix &lt;-<span class="st"> </span><span class="kw">data.matrix</span>(raw_counts_csv_data)
+  rowdata_csv_data &lt;-<span class="st"> </span>raw_counts_csv_data<span class="op">$</span><span class="st">`</span><span class="dt">Gene symbol</span><span class="st">`</span>
+  <span class="kw">rownames</span>(raw_counts_csv_data_matrix) &lt;-<span class="st"> </span>rowdata_csv_data
+  
+  <span class="kw">colnames</span>(raw_counts_csv_data) &lt;-samplenames_csv[[<span class="dv">1</span>]]
+  
+  se &lt;-<span class="st"> </span><span class="kw">SummarizedExperiment</span>(<span class="dt">assays =</span> raw_counts_csv_data_matrix,
+                             <span class="dt">rowData =</span> rowdata_csv_data,
+                             <span class="dt">colData =</span> phenodata_csv)
+  
+  <span class="kw">metadata</span>(se)<span class="op">$</span>metadata &lt;-<span class="st"> </span>metadata 
+  
+  <span class="kw">return</span>(se)
+  
+}</code></pre></div>
+</div>
+<div id="shiny-2" class="section level3">
+<h3><span class="header-section-number">5.5.2</span> Shiny</h3>
+<div id="server.r-2" class="section level4">
+<h4><span class="header-section-number">5.5.2.1</span> Server.R</h4>
+<p>In the code below from the server, the created function for summarized experiment is used. The output of the code below is the assay data (raw counts) from the dataset. We renamed se to se_2, because the code wouldn't work if the name was the same as the se name in the function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">se_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>build_sum_csv, {
+     <span class="kw">build_summ_exp_function_csv</span>(<span class="kw">gse_id_number</span>())
+      
+   })
+  
+   output<span class="op">$</span>tbl_assaydata_preview &lt;-<span class="st"> </span>DT<span class="op">::</span><span class="kw">renderDataTable</span>(
+     SummarizedExperiment<span class="op">::</span><span class="kw">assay</span>(<span class="kw">se_2</span>()),
+      <span class="dt">style =</span> <span class="st">&quot;bootstrap&quot;</span>,
+      <span class="dt">server =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+<div id="ui.r-2" class="section level4">
+<h4><span class="header-section-number">5.5.2.2</span> ui.R</h4>
+<p>Below is the code for the tab that contains the summarized experiment. The checkboxGroupInput is turned off, because this wasn't working probaly. We wanted to add this in so that the user can change the chosen names. The last box shows the selected colnames of the phenodata.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">tabItem</span>(<span class="dt">tabName =</span> <span class="st">&quot;build_summarized_experiment&quot;</span>,
+            <span class="kw">verticalLayout</span>(   
+              
+              <span class="kw">box</span>(
+                <span class="dt">title =</span> <span class="st">&quot;Make a summarizedExperiment&quot;</span>,
+                <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+                <span class="co">#actionButton(&quot;setup_se&quot;, label = &quot;setup for summerizedExperiment&quot;, icon(&quot;download&quot;, lib = &quot;font-awesome&quot;)),</span>
+                
+                <span class="co">#build experiment</span>
+                <span class="co">#checkboxGroupInput(&quot;sample_choises&quot;, &quot;selected_samples&quot;),</span>
+                <span class="co">#textInput(&quot;test_selected&quot;, &quot;Enter a copy of the sample_choises you want to test.&quot;),</span>
+                <span class="kw">actionButton</span>(<span class="st">&quot;build_sum_csv&quot;</span>, <span class="st">&quot;build se from csv&quot;</span>, <span class="dt">icon =</span> <span class="kw">icon</span>(<span class="st">&quot;wrench&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>)),
+                <span class="kw">actionButton</span>(<span class="st">&quot;build_sum_txt&quot;</span>, <span class="st">&quot;build se from txt&quot;</span>, <span class="dt">icon =</span> <span class="kw">icon</span>(<span class="st">&quot;wrench&quot;</span>, <span class="dt">lib =</span> <span class="st">&quot;font-awesome&quot;</span>)),
+                
+                <span class="kw">box</span>(
+                  <span class="dt">title =</span> <span class="st">&quot;Preview of the assaydata of this summarized experiment&quot;</span>,
+                 <span class="dt">width =</span> <span class="st">&quot;12&quot;</span>,
+                 <span class="kw">dataTableOutput</span>(<span class="st">&quot;tbl_assaydata_preview&quot;</span>)
+                )
+               )))</code></pre></div>
+
+</div>
+<div id="deseq2-function" class="section level4">
+<h4><span class="header-section-number">5.5.2.3</span> Deseq2 function</h4>
+</div>
+</div>
+<div id="make-deseq2-tab" class="section level3">
+<h3><span class="header-section-number">5.5.3</span> Make DESeq2 tab</h3>
+<p>This page is quite simple, we make a box where the data will be rendered. With an actionbutton the user will be able to activate the &quot;deseq2_function&quot;</p>
+
+</div>
+<div id="figures" class="section level3">
+<h3><span class="header-section-number">5.5.4</span> Figures</h3>
+<p>Inside the figure tab we need to make boxes so the figures have a place to go, we also have to make an actionbutton so only the figures you want will be displayed. For now this doesn't work. Pressing one button will give you all the figures. This will give a long loading time, so we want to add a loading barr.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#figures tab UI</span>
+<span class="kw">tabItem</span>(<span class="dt">tabName =</span> <span class="st">&quot;make_figures&quot;</span>,
+        <span class="kw">fluidRow</span>(
+          
+          <span class="kw">box</span>(
+            <span class="dt">title =</span> <span class="st">&quot;PCA&quot;</span>,
+            <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+            <span class="kw">actionButton</span>(<span class="st">&quot;calculate_PCA&quot;</span>, <span class="st">&quot;First examples of PCA&quot;</span>),
+            
+            <span class="kw">box</span>(
+              <span class="dt">title =</span> <span class="st">&quot;First examples of PC analysis&quot;</span>,
+              <span class="dt">width =</span> <span class="st">&quot;12&quot;</span>,
+              <span class="kw">plotOutput</span>(<span class="st">&quot;matrix_PCA&quot;</span>)
+            )),
+            
+            <span class="kw">box</span>(
+              <span class="dt">title =</span> <span class="st">&quot;Heatmap&quot;</span>,
+              <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+              <span class="kw">actionButton</span>(<span class="st">&quot;calculate_heatmap&quot;</span>, <span class="st">&quot;Heatmap top 20&quot;</span>),
+              
+              <span class="kw">box</span>(
+                <span class="dt">title =</span> <span class="st">&quot;heatmap&quot;</span>,
+                <span class="dt">width =</span> <span class="st">&quot;12&quot;</span>,
+                <span class="kw">plotOutput</span>(<span class="st">&quot;matrix_heatmap&quot;</span>)
+              )),
+          
+          <span class="kw">box</span>(
+            <span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>,
+            <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+            <span class="kw">actionButton</span>(<span class="st">&quot;calculate_histogram&quot;</span>, <span class="st">&quot;histogram&quot;</span>),
+            
+            <span class="kw">box</span>(
+              <span class="dt">title =</span> <span class="st">&quot;This is a Histogram&quot;</span>,
+              <span class="dt">width =</span> <span class="st">&quot;12&quot;</span>,
+              <span class="kw">plotOutput</span>(<span class="st">&quot;matrix_Histogram&quot;</span>)
+            )),
+          
+          <span class="kw">box</span>(
+            <span class="dt">title =</span> <span class="st">&quot;Vulcan plot&quot;</span>,
+            <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+            <span class="kw">actionButton</span>(<span class="st">&quot;calculate_Vulcan&quot;</span>, <span class="st">&quot;Vulcan&quot;</span>),
+            
+            <span class="kw">box</span>(
+              <span class="dt">title =</span> <span class="st">&quot;This is a Vulcan plot&quot;</span>,
+              <span class="dt">width =</span> <span class="st">&quot;12&quot;</span>,
+              <span class="kw">plotOutput</span>(<span class="st">&quot;matrix_Vulcan&quot;</span>)
+            ))
+          
+            ))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#figures tab server </span>
+<span class="co">#PCA plot maken</span>
+  pca_plot &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>calculate_PCA, {
+    <span class="kw">pca_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  output<span class="op">$</span>matrix_PCA &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
+    <span class="kw">pca_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  <span class="co">#Heatmap maken</span>
+  heatmap_plot &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>calculate_heatmap, {
+    <span class="kw">heatmap_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  output<span class="op">$</span>matrix_heatmap &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
+    <span class="kw">heatmap_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  <span class="co">#Histogram</span>
+  histogram_plot &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>calculate_histogram, {
+    <span class="kw">geom_histogram_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  output<span class="op">$</span>matrix_Histogram &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
+   <span class="kw">geom_histogram_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  <span class="co">#Vulcan</span>
+ vulcan_plot &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>calculate_Vulcan, {
+    <span class="kw">vulcan_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  output<span class="op">$</span>matrix_Vulcan &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
+    <span class="kw">vulcan_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })</code></pre></div>
+
+<div id="pca-function" class="section level4">
+<h4><span class="header-section-number">5.5.4.1</span> PCA function</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#PCA fucntion</span>
+pca_function &lt;-<span class="st"> </span><span class="cf">function</span>(se_input){
+  <span class="co">#We need to do the first steps of the DESeq2 again, we are looking for a solution to make this easier</span>
+    ddsSE &lt;-<span class="st"> </span>DESeq2<span class="op">::</span><span class="kw">DESeqDataSet</span>(se_input, <span class="dt">design =</span> <span class="kw">formula</span>(<span class="op">~</span>dev_stage <span class="op">+</span><span class="st"> </span>genotype))
+  
+  <span class="co">#ddsSE &lt;- DESeq2::DESeqDataSet(se, design = formula(~dev_stage + infection_genotype))</span>
+  
+  keep &lt;-<span class="st"> </span><span class="kw">rowSums</span>(<span class="kw">counts</span>(ddsSE)) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>
+  ddsSE &lt;-<span class="st"> </span>ddsSE[keep,]
+  
+  ddsDE &lt;-<span class="st"> </span><span class="kw">DESeq</span>(ddsSE)
+  
+  ddsDE_rlog &lt;-<span class="st"> </span>ddsDE <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">rlogTransformation</span>() 
+  
+<span class="co">#Make the pca_plot,, dev_stage and genotype needs to be params  </span>
+  pca_plot &lt;-<span class="st"> </span>ddsDE_rlog <span class="op">%&gt;%</span>
+<span class="st">    </span>DESeq2<span class="op">::</span><span class="kw">plotPCA</span>(<span class="dt">intgroup =</span> <span class="kw">c</span>(<span class="st">&quot;dev_stage&quot;</span>, <span class="st">&quot;genotype&quot;</span>)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">0</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>)
+  
+  <span class="kw">return</span>(pca_plot)
+}</code></pre></div>
+</div>
+<div id="make-pca-figure" class="section level4">
+<h4><span class="header-section-number">5.5.4.2</span> Make PCA figure</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabItem</span>(<span class="dt">tabName =</span> <span class="st">&quot;make_figures&quot;</span>,
+        <span class="kw">fluidRow</span>(
+          
+          <span class="kw">box</span>(
+            <span class="dt">title =</span> <span class="st">&quot;PCA&quot;</span>,
+            <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+            <span class="kw">actionButton</span>(<span class="st">&quot;calculate_PCA&quot;</span>, <span class="st">&quot;First examples of PCA&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#PCA plot maken</span>
+  pca_plot &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>calculate_PCA, {
+    <span class="kw">pca_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  output<span class="op">$</span>matrix_PCA &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
+    <span class="kw">pca_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })</code></pre></div>
+
+</div>
+<div id="heatmap-function" class="section level4">
+<h4><span class="header-section-number">5.5.4.3</span> Heatmap function</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heatmap_function &lt;-<span class="st"> </span><span class="cf">function</span>(se_input){
+  <span class="co">#First part is the deseq2 function again</span>
+  ddsSE &lt;-<span class="st"> </span>DESeq2<span class="op">::</span><span class="kw">DESeqDataSet</span>(se_input, <span class="dt">design =</span> <span class="kw">formula</span>(<span class="op">~</span>dev_stage <span class="op">+</span><span class="st"> </span>genotype))
+  
+  keep &lt;-<span class="st"> </span><span class="kw">rowSums</span>(<span class="kw">counts</span>(ddsSE)) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>
+  ddsSE &lt;-<span class="st"> </span>ddsSE[keep,]
+  
+  ddsDE &lt;-<span class="st"> </span><span class="kw">DESeq</span>(ddsSE)
+  
+  ddsDE_rlog &lt;-<span class="st"> </span>ddsDE <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">rlogTransformation</span>() 
+  
+  
+  
+  matrix_results &lt;-<span class="st"> </span><span class="kw">assay</span>(ddsDE_rlog)
+  
+  ind &lt;-<span class="st"> </span>matrix_results <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">rowMeans</span>() <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">order</span>(<span class="dt">decreasing =</span> <span class="ot">TRUE</span>) 
+  
+  top20 &lt;-<span class="st"> </span>matrix_results[ind[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>],]
+  
+  annot_df &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">colData</span>(ddsDE)[,<span class="kw">c</span>(<span class="st">&quot;dev_stage&quot;</span>,<span class="st">&quot;genotype&quot;</span>)])
+  
+  heatmap &lt;-<span class="st"> </span><span class="kw">pheatmap</span>(top20,
+                      <span class="dt">scale =</span> <span class="st">&quot;row&quot;</span>, 
+                      <span class="dt">annotation_col =</span> annot_df)
+  <span class="kw">return</span>(heatmap)
+}</code></pre></div>
+</div>
+<div id="make-heatmap-figure-of-top-20" class="section level4">
+<h4><span class="header-section-number">5.5.4.4</span> Make heatmap figure of top 20</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">box</span>(
+              <span class="dt">title =</span> <span class="st">&quot;Heatmap&quot;</span>,
+              <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+              <span class="kw">actionButton</span>(<span class="st">&quot;calculate_heatmap&quot;</span>, <span class="st">&quot;Heatmap top 20&quot;</span>),
+              
+              <span class="kw">box</span>(
+                <span class="dt">title =</span> <span class="st">&quot;heatmap&quot;</span>,
+                <span class="dt">width =</span> <span class="st">&quot;12&quot;</span>,
+                <span class="kw">plotOutput</span>(<span class="st">&quot;matrix_heatmap&quot;</span>)
+              ))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Heatmap maken</span>
+  heatmap_plot &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>calculate_heatmap, {
+    <span class="kw">heatmap_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  output<span class="op">$</span>matrix_heatmap &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
+    <span class="kw">heatmap_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })</code></pre></div>
+
+</div>
+<div id="histogram-code" class="section level4">
+<h4><span class="header-section-number">5.5.4.5</span> Histogram code</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">geom_histogram_function &lt;-<span class="st"> </span><span class="cf">function</span>(se_input) {
+  
+  <span class="co">#We need to do the first steps of the DESeq2 again, we are looking for a solution to make this easier</span>
+  ddsSE &lt;-<span class="st"> </span>DESeq2<span class="op">::</span><span class="kw">DESeqDataSet</span>(se_input, <span class="dt">design =</span> <span class="kw">formula</span>(<span class="op">~</span>dev_stage <span class="op">+</span><span class="st"> </span>genotype))
+  <span class="co">#ddsSE &lt;- DESeq2::DESeqDataSet(se, design = formula(~dev_stage + genotype))</span>
+  
+  keep &lt;-<span class="st"> </span><span class="kw">rowSums</span>(<span class="kw">counts</span>(ddsSE)) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>
+  ddsSE &lt;-<span class="st"> </span>ddsSE[keep,]
+  
+  <span class="co">#run differential expression analysis</span>
+  ddsDE&lt;-<span class="st"> </span><span class="kw">DESeq</span>(ddsSE)
+  
+  <span class="co">#Results</span>
+  res &lt;-<span class="st"> </span><span class="kw">results</span>(ddsDE)
+  head_res &lt;-<span class="st"> </span>res[<span class="kw">order</span>(res<span class="op">$</span>padj), ] <span class="op">%&gt;%</span><span class="st"> </span>head
+  <span class="co"># show distribution of p-values</span>
+  
+  Histogram_iets  &lt;-<span class="kw">ggplot</span>(<span class="kw">as</span>(head_res, <span class="st">&quot;data.frame&quot;</span>), <span class="kw">aes</span>(<span class="dt">x =</span> pvalue)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_histogram</span>()
+  
+  <span class="kw">return</span>(Histogram_iets)
+}
+<span class="co">#</span></code></pre></div>
+</div>
+<div id="make-histogram-figure" class="section level4">
+<h4><span class="header-section-number">5.5.4.6</span> Make histogram figure</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">box</span>(
+            <span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>,
+            <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+            <span class="kw">actionButton</span>(<span class="st">&quot;calculate_histogram&quot;</span>, <span class="st">&quot;histogram&quot;</span>),
+            
+            <span class="kw">box</span>(
+              <span class="dt">title =</span> <span class="st">&quot;This is a Histogram&quot;</span>,
+              <span class="dt">width =</span> <span class="st">&quot;12&quot;</span>,
+              <span class="kw">plotOutput</span>(<span class="st">&quot;matrix_Histogram&quot;</span>)
+            ))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Histogram</span>
+  histogram_plot &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>calculate_histogram, {
+    <span class="kw">geom_histogram_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  output<span class="op">$</span>matrix_Histogram &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
+   <span class="kw">geom_histogram_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })</code></pre></div>
+
+</div>
+<div id="vulcan-plot-code" class="section level4">
+<h4><span class="header-section-number">5.5.4.7</span> Vulcan plot code</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vulcan_function &lt;-<span class="cf">function</span>(se_input) {
+  ddsSE &lt;-<span class="st"> </span>DESeq2<span class="op">::</span><span class="kw">DESeqDataSet</span>(se_input, <span class="dt">design =</span> <span class="kw">formula</span>(<span class="op">~</span>dev_stage <span class="op">+</span><span class="st"> </span>genotype))
+  <span class="co">#ddsSE &lt;- DESeq2::DESeqDataSet(se, design = formula(~dev_stage + genotype))</span>
+  
+  keep &lt;-<span class="st"> </span><span class="kw">rowSums</span>(<span class="kw">counts</span>(ddsSE)) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">10</span>
+  ddsSE &lt;-<span class="st"> </span>ddsSE[keep,]
+  
+  <span class="co">#run differential expression analysis</span>
+  ddsDE&lt;-<span class="st"> </span><span class="kw">DESeq</span>(ddsSE)
+  
+  <span class="co">#Results</span>
+  res &lt;-<span class="st"> </span><span class="kw">results</span>(ddsDE)
+  head_res &lt;-<span class="st"> </span>res[<span class="kw">order</span>(res<span class="op">$</span>padj), ] <span class="op">%&gt;%</span><span class="st"> </span>head
+  
+  top5genes &lt;-<span class="st"> </span><span class="kw">rownames</span>(res[<span class="kw">order</span>(res<span class="op">$</span>padj), ])[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
+  
+  resLFC &lt;-<span class="st"> </span><span class="kw">lfcShrink</span>(ddsDE, 
+                      <span class="dt">coef =</span> <span class="st">&quot;dev_stage_age..5.months_vs_age..12.months&quot;</span>     )               
+  
+  Vulcan_iets  &lt;-DESeq2<span class="op">::</span><span class="kw">plotMA</span>(resLFC, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>))
+  <span class="kw">return</span>(Vulcan_iets)
+}</code></pre></div>
+</div>
+<div id="make-vulcan-plot" class="section level4">
+<h4><span class="header-section-number">5.5.4.8</span> Make vulcan plot</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">box</span>(
+            <span class="dt">title =</span> <span class="st">&quot;Vulcan plot&quot;</span>,
+            <span class="dt">width =</span> <span class="st">&quot;10&quot;</span>,
+            <span class="kw">actionButton</span>(<span class="st">&quot;calculate_Vulcan&quot;</span>, <span class="st">&quot;Vulcan&quot;</span>),
+            
+            <span class="kw">box</span>(
+              <span class="dt">title =</span> <span class="st">&quot;This is a Vulcan plot&quot;</span>,
+              <span class="dt">width =</span> <span class="st">&quot;12&quot;</span>,
+              <span class="kw">plotOutput</span>(<span class="st">&quot;matrix_Vulcan&quot;</span>)
+            ))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Vulcan</span>
+ vulcan_plot &lt;-<span class="st"> </span><span class="kw">eventReactive</span>(input<span class="op">$</span>calculate_Vulcan, {
+    <span class="kw">vulcan_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })
+  
+  output<span class="op">$</span>matrix_Vulcan &lt;-<span class="st"> </span><span class="kw">renderPlot</span> ({
+    <span class="kw">vulcan_function</span>(<span class="dt">se_input =</span> <span class="kw">se_2</span>())
+  })</code></pre></div>
+
+</div>
+</div>
+<div id="download-data-tab" class="section level3">
+<h3><span class="header-section-number">5.5.5</span> Download data tab</h3>
+<p>We want to be able to download the data, this doesn't work yet.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-hardcode-the-beta-version-of-the-dashboard.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion-and-discusion-.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["new_eindverslag_dashboard_sj.pdf", "new_eindverslag_dashboard_sj.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

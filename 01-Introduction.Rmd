@@ -30,6 +30,11 @@ This analysis used the DESeq2 workflow by Love et al., 2014(^ Love, M.I., Huber,
 
 loading libraries and setting root 
 Alle functies zijn opgeslagen in library's deze moeten we dus eerst downloaden en ophalen.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 ```{r eval=FALSE, include=FALSE}
 #install libraries if not installed
 #require("tidyverse") || utils::install.packages("tidyverse")

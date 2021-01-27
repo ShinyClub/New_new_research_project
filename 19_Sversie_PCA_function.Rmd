@@ -9,12 +9,9 @@ params:
   geo_dataset: GSE150646
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 #### PCA function
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 #PCA fucntion
 pca_function <- function(se_input){
   #We need to do the first steps of the DESeq2 again, we are looking for a solution to make this easier
@@ -42,7 +39,7 @@ pca_function <- function(se_input){
 
 
 #### Make PCA figure
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 tabItem(tabName = "make_figures",
         fluidRow(
           
@@ -52,7 +49,7 @@ tabItem(tabName = "make_figures",
             actionButton("calculate_PCA", "First examples of PCA")
 ```
 
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 #PCA plot maken
   pca_plot <- eventReactive(input$calculate_PCA, {
     pca_function(se_input = se_2())

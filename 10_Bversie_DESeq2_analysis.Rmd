@@ -11,7 +11,7 @@ params:
 
 
 
-### DESeq2 analysis
+## DESeq2 analysis
 
 DESeq2 is a {package} that will be used to detect the dfference between genes and to visualize the data. The raw count data, so the raw samples, will be used as input. 
 

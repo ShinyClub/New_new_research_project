@@ -9,7 +9,7 @@ params:
   geo_dataset: GSE150646
 ---
 
-### Get the first data of the experiment
+## Get the first data of the experiment
 
 With the functions below the data from the selected experiment will be downloaded. The first steps are to collect the data of the experiment and the supplementary files (supp_files from now on). Inside the supp_files are the raw data of the experimnet, a supp_file can be any kind of file. For our project we've focused on csv files only.
 

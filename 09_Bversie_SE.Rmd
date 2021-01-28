@@ -32,7 +32,7 @@ head(assay(se_csv_data))
 ```
 
 
-#### iSEE
+### iSEE
 
 This function can be used to explore the data stored in the SummarizedExperiment, like the row- and column-level metadata. 
 ```{r}

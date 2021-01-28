@@ -9,7 +9,7 @@ params:
   geo_dataset: GSE150646
 ---
 
-#### Unzipping of the downloaded data
+## Unzipping of the downloaded data
 
 We start the same way as “untar the data”, we tell R where to find the zipped files and select them with the pattern “.gz”.
 The new map function will then unzip the files with function GEOquery::gunzip

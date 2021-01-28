@@ -9,9 +9,9 @@ params:
   geo_dataset: GSE150646
 ---
 
-### Make data ready for SummarizedExperiment and DESeq2
+## Make data ready for SummarizedExperiment and DESeq2
 
-####Genarating a summarized experiment for (CSV)
+###Genarating a summarized experiment for (CSV)
 
 The first steps in making a summarized experiment are getting the phenodata and metadata.
 Before we do that we first check if we still have the correct data selected. 

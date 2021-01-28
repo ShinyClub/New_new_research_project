@@ -9,7 +9,7 @@ params:
   geo_dataset: GSE150646
 ---
 
-#### Last steps before SummarizedExperiment
+### Last steps before SummarizedExperiment
 
 Now we can load the CSV_file, you’ll see the first few counts inside the file. Check if the data file is a “data.frame.
 

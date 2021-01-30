@@ -1,6 +1,6 @@
 --- 
 title: "A dashboard for data analysis"
-author: "Sanne ne Jelmer"
+author: "Sanne en Jelmer"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book

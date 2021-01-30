@@ -68,3 +68,5 @@ In the experimental group tab we want to be able to select 2 characteristic(s) a
 The figure tab doesn’t work like it should. It automatically makes all the figures instead of one. Because of this we want to add a loading bar so the user knows the dashboard is still working.
 
 The download your data tab doesn’t work at all. We want to make a checkbox group where you can select what kind of data you want to download and in what kind of format.
+test commit
+

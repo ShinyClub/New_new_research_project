@@ -11,7 +11,7 @@ params:
 
  
 # Conclusion
-Our goal was to make a working dsahboard for analyzing transcriptome data.   
+Our goal was to make a working dashboard for analyzing transcriptome data.   
 So far we made a dashboard that can analyze csv files. And automated this as far as we can. But if you want to use a different csv file you’ll need to change some of the functions.
 In the discussion we describe the parts.
 
@@ -34,24 +34,24 @@ raw_counts_csv_data <- csv_data[2:21]
 
 
 **geom_histogram_function.R**
-Change the variable factor on row 4
-ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
+Change the variable factor on row 4  
+ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))  
 
 **heatmap_function.R**
-Change the variable factor on row 4 and 24
-ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
-annot_df <- as.data.frame(colData(ddsDE)[,c("dev_stage","genotype")])
+Change the variable factor on row 4 and 24  
+ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))  
+annot_df <- as.data.frame(colData(ddsDE)[,c("dev_stage","genotype")])  
 
 **pca_function.R**
-Change the variable factor on row 4 and 19
-ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
-DESeq2::plotPCA(intgroup = c("dev_stage", "genotype"))
+Change the variable factor on row 4 and 19  
+ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))  
+DESeq2::plotPCA(intgroup = c("dev_stage", "genotype"))  
 
 **pca_function.R**
-Change the variable factor on row 4 and 17/18
-ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
+Change the variable factor on row 4 and 17/18    
+ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))  
 resLFC <- lfcShrink(ddsDE, 
-                      coef = "dev_stage_age..5.months_vs_age..12.months"     )  
+                      coef = "dev_stage_age..5.months_vs_age..12.months"     )    
 
 ## Recommendations 
 We want to make more functions and buttons for the dashboard. 

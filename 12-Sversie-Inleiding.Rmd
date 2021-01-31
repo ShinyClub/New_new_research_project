@@ -9,11 +9,10 @@ params:
   geo_dataset: GSE150646
 ---
 
-# inleiding shiny dashboard
-woaah dashboard  
+# The dashboard created with Shiny
 
-
-How this dashboard looks like.
+In these chapters we'll show you the functions that we used to create the application. 
+In the picture below you see the front page of the dashboard. 
 ```{r}
 knitr::include_graphics("dashboard_pictures/instructions_tab.PNG")
 ```

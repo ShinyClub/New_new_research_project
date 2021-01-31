@@ -12,7 +12,7 @@ summarizedexperiment
 isee
 deseq2-analysis
 the-visualization-of-the-dataset
-inleiding-shiny-dashboard
+the-dashboard-created-with-shiny
 download-function
 the-working-code-behind-the-application.
 shiny
@@ -42,4 +42,7 @@ make-histogram-figure
 vulcan-plot-code
 make-vulcan-plot
 download-data-tab
-conclusion-and-discusion.
+conclusion
+discussion-recommendations
+functions-that-needs-to-be-changed-every-time.
+recommendations

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A dashboard for data analysis</title>
+  <title>Chapter7 Discussion &amp; recommendations | A dashboard for data analysis</title>
   <meta name="description" content="RNA seq." />
   <meta name="generator" content="bookdown 0.21.6 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A dashboard for data analysis" />
+  <meta property="og:title" content="Chapter7 Discussion &amp; recommendations | A dashboard for data analysis" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A dashboard for data analysis" />
+  <meta name="twitter:title" content="Chapter7 Discussion &amp; recommendations | A dashboard for data analysis" />
   
   <meta name="twitter:description" content="RNA seq." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="conclusion.html"/>
 
-<link rel="next" href="introduction.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -172,23 +172,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A dashboard for data analysis</h1>
-<p class="author"><em>Sanne en Jelmer</em></p>
-<p class="date"><em>2021-01-31</em></p>
+<div id="discussion-recommendations" class="section level1">
+<h1><span class="header-section-number">Chapter7</span> Discussion &amp; recommendations</h1>
+<div id="functions-that-needs-to-be-changed-every-time." class="section level2">
+<h2><span class="header-section-number">7.1</span> Functions that needs to be changed every time.</h2>
+<p>(op volgorde zetten)</p>
+<p><strong>build_summ_function_csv.R</strong> The first thing you need to check, what’s the column number of the variable factor row 30 and 31: colnames(phenodata_tbl)[11] &lt;- &quot;dev_stage&quot; colnames(phenodata_tbl)[12] &lt;- &quot;genotype&quot;</p>
+<p>How big is the phenodata_tbl? phenodata_csv &lt;- phenodata_tbl[2:41]</p>
+<p>How big is the csv file (how many columns?) raw_counts_csv_data &lt;- csv_data[2:21]</p>
+<p><strong>geom_histogram_function.R</strong> Change the variable factor on row 4<br />
+ddsSE &lt;- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))</p>
+<p><strong>heatmap_function.R</strong> Change the variable factor on row 4 and 24<br />
+ddsSE &lt;- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))<br />
+annot_df &lt;- as.data.frame(colData(ddsDE)[,c(&quot;dev_stage&quot;,&quot;genotype&quot;)])</p>
+<p><strong>pca_function.R</strong> Change the variable factor on row 4 and 19<br />
+ddsSE &lt;- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))<br />
+DESeq2::plotPCA(intgroup = c(&quot;dev_stage&quot;, &quot;genotype&quot;))</p>
+<p><strong>pca_function.R</strong> Change the variable factor on row 4 and 17/18<br />
+ddsSE &lt;- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))<br />
+resLFC &lt;- lfcShrink(ddsDE, coef = &quot;dev_stage_age..5.months_vs_age..12.months&quot; )</p>
 </div>
-<div id="prerequisites" class="section level1">
-<h1><span class="header-section-number">Chapter1</span> Prerequisites</h1>
-<p>Dit is ons boek!</p>
+<div id="recommendations" class="section level2">
+<h2><span class="header-section-number">7.2</span> Recommendations</h2>
+<p>We want to make more functions and buttons for the dashboard. What we’ve in mind: For different formats (xlsx, txt, etc) we make different functions. For each format we research what kind of codes match, so we can make a ‘work flow’ for the different formats. This should make the dashboard faster. Inside the dashboard you can press the action buttons with these functions.</p>
+<p>What we’d also like to test, the user can select at the first page of the dashboard what kind of files they want to work with. If they select csv files, the action buttons will automatically choose the csv functions.</p>
+<p>In the experimental group tab we want to be able to select 2 characteristic(s) and change their name. The dashboard will work with these selected (…) this change would automate a big part of the code and the dashboard.</p>
+<p>The figure tab doesn’t work like it should. It automatically makes all the figures instead of one. Because of this we want to add a loading bar so the user knows the dashboard is still working.</p>
+<p>The download your data tab doesn’t work at all. We want to make a checkbox group where you can select what kind of data you want to download and in what kind of format. test commit</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="conclusion.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -219,7 +239,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ShinyClub/New_new_research_project/edit/main/index.Rmd",
+"link": "https://github.com/ShinyClub/New_new_research_project/edit/main/24_conclusion_discussion.Rmd",
 "text": "Edit"
 },
 "history": {

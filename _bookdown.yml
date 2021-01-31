@@ -1,6 +1,8 @@
-book_filename: "new_eindverslag_dashboard_sj"
+book_filename: "New_new_research_project"
 delete_merged_file: true
 output_dir: "docs"
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: "Chapter"
+#view: https://github.com/ShinyClub/New_new_research_project%s
+edit: https://github.com/ShinyClub/New_new_research_project/edit/main/%s

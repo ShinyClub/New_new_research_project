@@ -1,9 +1,15 @@
-bookdown::gitbook:
+ouput: 
+ bookdown::gitbook:
   css: style.css
   config:
     toc:
       before: |
         <li><a href="./">A Minimal Book Example</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    download: ["pdf", "epub"]
+        <li><a href="https://github.com/ShinyClub/New_new_research_project" target="blank">Published with bookdown</a></li>
+    download: ["pdf"]
+  bookdown:: pdf_book
+
+#after: |
+ #       <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+ 

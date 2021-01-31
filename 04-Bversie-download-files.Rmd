@@ -2,7 +2,10 @@
 title: "03-Get-data"
 author: "Jelmer"
 date: "24-1-2021"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
+  
 params:
   data1: dev_stage
   data2: genotype

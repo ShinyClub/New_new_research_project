@@ -2,7 +2,7 @@
 title: "A dashboard for data analysis"
 author: "Sanne en Jelmer"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+site: "bookdown::bookdown_site"
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -12,6 +12,10 @@ params:
   data1: dev_stage
   data2: genotype
   geo_dataset: GSE150646
+output: 
+  bookdown::pdf_book:
+    keep_tex: yes
+  
 ---
 
 # Prerequisites

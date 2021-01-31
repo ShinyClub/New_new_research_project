@@ -10,91 +10,14 @@ params:
 ---
 
 # Introduction
-Hoe commit je? (overbodig)
-in terminal:
-git add .
-git commit -m"plaats hier tekst"
-git status
-git branch main
-
-Naam geven bestanden:
-nummer + hoofdstuk + functie
-04-Bversie-untar-files
-
-Hier hebben we het over het doel van het experiment
-We hebben de code op sommige plekken een beetje aangepast, zodat in het verslag ook te zien is wat er gebeurd.
-In dit verslag lopen we langs alle stappen van de Hardcode (hierboven uitgelegd). Per "code chunk" wordt uitgelegd wat de functie/werking/doel is. 
-
-Differential expression analysis
-This analysis used the DESeq2 workflow by Love et al., 2014(^ Love, M.I., Huber, W. & Anders, S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15, 550 (2014). https://doi.org/10.1186/s13059-014-0550-8)
-
-loading libraries and setting root 
-Alle functies zijn opgeslagen in library's deze moeten we dus eerst downloaden en ophalen.
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r eval=FALSE, include=FALSE}
-#install libraries if not installed
-#require("tidyverse") || utils::install.packages("tidyverse")
-#require("rprojroot") || utils::install.packages("rprojroot")
-#require("pheatmap") || utils::install.packages("pheatmap")
-#require("edgeR") || utils::install.packages("edgeR")
-#require("dplyr") || utils::install.packages("dplyr")
-#BiocManager::install("Biostrings")
-#BiocManager::install("biomaRt")
-#BiocManager::install("GEOquery")
-#BiocManager::install("rnaseqGene")
-#BiocManager::install("msa")
-#BiocManager::install("iSEE")
-#install.packages("bookdown")
-```
-
-```{r include=FALSE}
-#load libraries
-library(bookdown)
-library(tidyverse)
-library(rprojroot)
-library(Biostrings)
-library(biomaRt)
-library(GEOquery)
-library(rnaseqGene)
-library(pheatmap)
-library(msa)
-library(iSEE)
-library(edgeR)
-library(dplyr)
-library(DESeq2)
-library(readr)
-```
-
-uitleggen
-```{r}
-#find the root file
-root <- find_root_file(criterion = is_rstudio_project)
-```
-
-We leggen voor elk stukje code uit wat er gebeurd en waarom.
-De code is zo opgedeeld dat elk stukje code uitgelegd kan worden, en gevisualiseerd.
-kleine aanpassing test
-
-General overview of subject.
-General overview of project:
-•	What has been done and what are remaining questions. 
-•	Explain which methods and what experimental setup are used 
-•	Cite relevant literaturen
-•	Check if hypothesis or goal is included
-•	Use figures only if they contain additional information to tekst
-•	Introduction is, in principal, limited to 3 pages
 
 The purpose of this project wat to create a dashboard for processing and visualizing transcriptome data. 
 
-The basics of the dashboard was made by Thomas Baardemans. The hardcode was capable to completly proces an GSE dataset that was saved in a tekst file. The project guided by Marc Teunis. Marie Corradi joined the project later as an advisor. 
+The basics of the dashboard was made by Thomas Baardemans. The hardcode was capable to completly proces an GSE dataset that was saved in a text file. The project is guided by Marc Teunis. Marie Corradi joined the project later as an advisor. 
 
 Our main goal was to automate the dashboard and to adapt the code so that other file types, like CSV files can be processed. 
 
-The main tooles for this project was the programming language R and the work environment Rstudio. R and Rstudio are created for data analysis, both are open source, free and have an active community that create new library’s, packages and functions. The software is also quite easy to use sinds both of us didn’t have any background knowledge about coding before we started the minor. 
+The main tools for this project was the programming language R and the work environment Rstudio. R and Rstudio are created for data analysis, both are open source, free and have an active community that create new library’s, packages and functions. The software is also quite easy to use sinds both of us didn’t have any background knowledge about coding before we started the minor. 
 
 A library exits out of multiple package and a package consits out of multiple functions. A function is used to achieve a specific task. 
 

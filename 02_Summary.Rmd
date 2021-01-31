@@ -11,9 +11,6 @@ params:
 
 # Summary
 
-Shortly explain why the work was done.
-Summary of (most important) methods, results and conclusions of work were described. 
-
 The goal of this project is too create a dashboard to analyse transcriptome data with the programming language R and the working enviroment Rstudio. Transcriptome data is usually sourced from RNA sequence experiments, Ilumina sequencing and/or microarrays. Due to the large quantity of the results it takes alot of time to research/compare the data and often a data analist is necessary to visualize the datasets. 
 
 This dashboard will be a tool that a researcher can use to quickly visualize their experimental results.  
@@ -22,6 +19,6 @@ An application like this would be handy, because the experimental results can be
 
 The application is still under construction. The goal of creating a working dashboard hasn’t been reached, but big steps into the right direction were made. An example of this is that the dashboard can almost process a CSV file. 
 
-We will continue this project, this research report is written to document the progress. 
+We will continue this project, this research report is created to document the made progress. 
 
 

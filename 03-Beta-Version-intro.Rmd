@@ -9,29 +9,57 @@ params:
   geo_dataset: GSE150646
 ---
 
+
 #The hardcode - the beta version of the dashboard
-In this part we'll explain each part of our version of the dashboard.
-This chapter contains the following sub-chapters
+Differential expression analysis
+This analysis used the DESeq2 workflow by Love et al., 2014(^ Love, M.I., Huber, W. & Anders, S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15, 550 (2014). https://doi.org/10.1186/s13059-014-0550-8)
 
-(hier dingen zoeken om het anders weer te geven, ook linkjes maken zodat je meteen naar dit hoofdstuk kan etc etc)
+In this report we will explain every fucntion that we used o create the hardcode and the Shiny application. 
 
-Get the first data of the experiment : in this chapter the following things will be discussed and explained...
+At the start of the project we will download serveral library's and create a root file.
+The processed data will be stored here. 
 
-Untar the data.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-Unzipping of the downloaded data
+```{r eval=FALSE, include=FALSE}
+#install libraries if not installed
+#require("tidyverse") || utils::install.packages("tidyverse")
+#require("rprojroot") || utils::install.packages("rprojroot")
+#require("pheatmap") || utils::install.packages("pheatmap")
+#require("edgeR") || utils::install.packages("edgeR")
+#require("dplyr") || utils::install.packages("dplyr")
+#BiocManager::install("Biostrings")
+#BiocManager::install("biomaRt")
+#BiocManager::install("GEOquery")
+#BiocManager::install("rnaseqGene")
+#BiocManager::install("msa")
+#BiocManager::install("iSEE")
+#install.packages("bookdown")
+```
 
-Make data ready for SummarizedExperiment and DESeq2
+```{r include=FALSE}
+#load libraries
+library(bookdown)
+library(tidyverse)
+library(rprojroot)
+library(Biostrings)
+library(biomaRt)
+library(GEOquery)
+library(rnaseqGene)
+library(pheatmap)
+library(msa)
+library(iSEE)
+library(edgeR)
+library(dplyr)
+library(DESeq2)
+library(readr)
+```
 
-Genarating a summarized experiment for (CSV)
 
-SummarizedExperiment (S)
-iSEE
+```{r}
+#Find the root file
+root <- find_root_file(criterion = is_rstudio_project)
+```
 
-DESeq2 analysis
-
-The visualization of the dataset
-Heatmap
-PCA
-Histogram
-Vulcan-plot

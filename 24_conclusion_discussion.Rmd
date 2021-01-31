@@ -11,7 +11,7 @@ params:
 
  
 # Conclusion
-Our goal was to make (…) 
+Our goal was to make a working dsahboard for analyzing transcriptome data.   
 So far we made a dashboard that can analyze csv files. And automated this as far as we can. But if you want to use a different csv file you’ll need to change some of the functions.
 In the discussion we describe the parts.
 
@@ -21,7 +21,7 @@ In the discussion we describe the parts.
 ## Functions that needs to be changed every time.
 (op volgorde zetten)
 
-### build_summ_function_csv.R
+**build_summ_function_csv.R**
 The first thing you need to check, what’s the column number of the variable factor
 row 30 and 31: colnames(phenodata_tbl)[11] <- "dev_stage"
  colnames(phenodata_tbl)[12] <- "genotype"
@@ -33,21 +33,21 @@ How big is the csv file (how many columns?)
 raw_counts_csv_data <- csv_data[2:21] 
 
 
-### geom_histogram_function.R
+**geom_histogram_function.R**
 Change the variable factor on row 4
 ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
 
-### heatmap_function.R
+**heatmap_function.R**
 Change the variable factor on row 4 and 24
 ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
 annot_df <- as.data.frame(colData(ddsDE)[,c("dev_stage","genotype")])
 
-### pca_function.R
+**pca_function.R**
 Change the variable factor on row 4 and 19
 ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
 DESeq2::plotPCA(intgroup = c("dev_stage", "genotype"))
 
-### pca_function.R
+**pca_function.R**
 Change the variable factor on row 4 and 17/18
 ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
 resLFC <- lfcShrink(ddsDE, 

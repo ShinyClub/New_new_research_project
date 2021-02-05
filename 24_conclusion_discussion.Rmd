@@ -11,62 +11,56 @@ params:
 
  
 # Conclusion
-Our goal was to make a working dashboard for analyzing transcriptome data.   
-So far we made a dashboard that can analyze csv files. And automated this as far as we can. But if you want to use a different csv file you’ll need to change some of the functions.
-In the discussion we describe the parts.
 
+Our goal was to make a working dashboard for analysing transcriptome data.   
+So far we created an almost completely automated dashboard that can analyse a CSV files. The application isn't fully automated, because the code still has too be adjusted if the user wants to switch between files. The functions that have to be changed are explained below in the discussion.   
 
-# Discussion & recommendations 
+# Discussion & Recommendations
 
-## Functions that needs to be changed every time.
-(op volgorde zetten)
+## Discussion 
+### Functions that needs to be changed every time.
 
 **build_summ_function_csv.R**
-The first thing you need to check, what’s the column number of the variable factor
-row 30 and 31: colnames(phenodata_tbl)[11] <- "dev_stage"
- colnames(phenodata_tbl)[12] <- "genotype"
+The first thing that needs to be checked is the column number of the variable factor. 
+row 30 and 31: colnames(phenodata_tbl)[11] <- **"dev_stage"**
+colnames(phenodata_tbl)[12] <- **"genotype"**
 
-How big is the phenodata_tbl?
+The size of the phenodata_tbl has to be checked. 
 phenodata_csv <- phenodata_tbl[2:41]
 
-How big is the csv file (how many columns?)
+Check how many columns there are in the CSV file. 
 raw_counts_csv_data <- csv_data[2:21] 
 
-
 **geom_histogram_function.R**
-Change the variable factor on row 4  
-ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))  
+The variable factor on row 4 has to be changed. 
+ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~**dev_stage** + **genotype**))  
 
 **heatmap_function.R**
-Change the variable factor on row 4 and 24  
-ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))  
-annot_df <- as.data.frame(colData(ddsDE)[,c("dev_stage","genotype")])  
+The variable factor on row 4 and 24 has to be changed. 
+ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~**dev_stage** + **genotype**))  
+annot_df <- as.data.frame(colData(ddsDE)[,c(**"dev_stage"**,**"genotype"**)])  
 
 **pca_function.R**
-Change the variable factor on row 4 and 19  
-ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))  
-DESeq2::plotPCA(intgroup = c("dev_stage", "genotype"))  
+he variable factor on row 4 and 19 has to be changed. 
+ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~**dev_stage** + **genotype**))  
+DESeq2::plotPCA(intgroup = c(**"dev_stage"**, **"genotype"**)) 
 
 **pca_function.R**
-Change the variable factor on row 4 and 17/18    
-ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))  
+The variable factor on row 4 and 17/18 has to be changed. 
+ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~**dev_stage** + **genotype**))  
 resLFC <- lfcShrink(ddsDE, 
                       coef = "dev_stage_age..5.months_vs_age..12.months"     )    
+                      coef = **"dev_stage_age..5.months_vs_age..12.months"**     )      
 
 ## Recommendations 
-We want to make more functions and buttons for the dashboard. 
-What we’ve in mind: 
-For different formats (xlsx, txt, etc) we make different functions. 
-For each format we research what kind of codes match, so we can make a ‘work flow’ for the different formats. This should make the dashboard faster.
-Inside the dashboard you can press the action buttons with these functions.
+We recommand to create multiple buttons and functions in the UI for different file formats; xlsx, txt, CSV, etc. The user would be able to choose the format and by separating the functions it is easier to create a work flow. This will help to automate the dashboard, since it will trigger the functions especially added for that filetype.  
 
-What we’d also like to test, the user can select at the first page of the dashboard what kind of files they want to work with. If they select csv files, the action buttons will automatically choose the csv functions.
+In the experimental group tab we want to be able to select multiple characteristic(s) and change their name. The dashboard will work with the selected this change would automate a big part of the code and the dashboard.
 
-In the experimental group tab we want to be able to select 2 characteristic(s) and change their name. The dashboard will work with these selected (…) this change would automate a big part of the code and the dashboard.
-
-
-The figure tab doesn’t work like it should. It automatically makes all the figures instead of one. Because of this we want to add a loading bar so the user knows the dashboard is still working.
+The figure tab doesn’t work correctly. It automatically creates all the figures instead of one, because of this we want to add a loading bar so the user knows the dashboard is still working.
 
 The download your data tab doesn’t work at all. We want to make a checkbox group where you can select what kind of data you want to download and in what kind of format.
-test commit
+
+
+
 

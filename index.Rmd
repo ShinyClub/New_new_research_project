@@ -1,5 +1,5 @@
 --- 
-title: "A dashboard for analysing genomics data"
+title: "A dashboard for analysing transcriptome data"
 author: "Created by Jelmer Oedzes and Sanne Schild"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

@@ -13,7 +13,7 @@ params:
 
 DESeq2 is a package that will be used to detect the dfference between genes and to visualize the data. The raw count data, so the raw samples, will be used as input. 
 
-The code below still has to be seperated for now it doesn't work proprely with the parameters. We are looking into methods to solve this issue. This function still needs to be manually changed with processing every new dataset. The non-working code is turned off. With this function the DESeq2 dataset will be created.
+The code below still has to be seperated for now it doesn't work proprely with the parameters. We are looking into methods to solve this issue. This function still needs to be manually changed with processing every new dataset. The non-working code is turned off. With this function the DESeq2 dataset will be created. 
 
 ```{r}
 #condition <- (get(params$data1, params$data2))

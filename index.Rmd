@@ -1,6 +1,6 @@
 --- 
-title: "A dashboard for data analysis"
-author: "Sanne en Jelmer"
+title: "A dashboard for analysing genomics data"
+author: "Created by Jelmer Oedzes and Sanne Schild"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -14,6 +14,10 @@ params:
   geo_dataset: GSE150646
 ---
 
-# Prerequisites
+# Overview
 
-Dit is ons boek!
+```{r echo=FALSE}
+knitr::include_graphics("dashboard_pictures/CopyOfInstructions_1.png")
+```
+
+

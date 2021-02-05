@@ -122,3 +122,4 @@ How the vulcan plot looks like.
 knitr::include_graphics("dashboard_pictures/vulcan_plot.PNG")
 ```
 
+

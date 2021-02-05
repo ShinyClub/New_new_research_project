@@ -16,3 +16,4 @@ In the picture below you see the front page of the dashboard.
 ```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/instructions_tab.PNG")
 ```
+

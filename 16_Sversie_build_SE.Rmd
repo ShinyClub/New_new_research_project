@@ -106,3 +106,4 @@ How this Summarized Experiment tab looks like.
 knitr::include_graphics("dashboard_pictures/SE_tab.PNG")
 ```
 
+

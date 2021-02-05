@@ -17,3 +17,4 @@ How the experimental groups tab looks like.
 ```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/experimental_groups_tab.PNG")
 ```
+

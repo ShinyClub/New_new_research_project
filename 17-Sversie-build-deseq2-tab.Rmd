@@ -78,3 +78,5 @@ How the DESeq2 tab looks like.
 ```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/Deseq2_tab.PNG")
 ```
+
+

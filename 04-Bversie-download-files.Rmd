@@ -5,7 +5,6 @@ date: "24-1-2021"
 output:
   pdf_document: default
   html_document: default
-  
 params:
   data1: dev_stage
   data2: genotype
@@ -14,36 +13,34 @@ params:
 
 ## Get the first data of the experiment
 
-With the functions below the data from the selected experiment will be downloaded. The first steps are to collect the data of the experiment and the supplementary files (supp_files from now on). Inside the supp_files are the raw data of the experimnet, a supp_file can be any kind of file. For our project we've focused on csv files only.
+With the functions below the data from the selected experiment will be downloaded. The first steps are to collect the data of the experiment and the supplementary files (supp_files). Inside the supp_files are the raw data of the experiment, a supp_file can be any kind of file. For our project we've focused on CSV files only.
 
+Before we can download the files we need to make a directory, the function will be stored here. After that we need to make sure the program knows what we want to work with.
+We can do this with parameters (params), you can find them at YAML of the Rmarkdown documents. The used params are geo_dataset (the number of the experiemnt from NCBI_GEO), params data1 and data2 will be explained later.
+When you want to analyse several experiments at the same time R needs to split the experiments, so it won't read the params as 1 experiment. We do this with the first code chunk, in this chunk, folders are also made for the different experiments.
 
-Before we can download the files we need to make a directory, this is for...  . After that we need to make sure R knows what we want to work with.
-We can do this with PARAMS, you can find them at the top of the Rmarkdown documents. The params we use are geo_dataset(put the number of your experiemnt from NCBI_GEO (LINKJE)), params data1 and data2 will be explained later.
-When you want to analyze several experiments at the same time (not recommended) R needs to split the experiments, so it won't read the params as 1 experiment. We do this with the first code chunk, in this chunk, folders are also made for the (different) experiments
-
-```{r first steps}
-#make a directory
-#create_dir <- function(path) {
+```{r }
+# Make a directory
+# create_dir <- function(path) {
  # 
 #}
 
-#When there are more params the (function) "datasets" will split them
+# When there are more params the (function) "datasets" will split them
 datasets <- strsplit(params$geo_dataset, split = " ") %>% unlist
-#With full_paths each parameter will be 
+# With full_paths each parameter will be 
 full_paths <- file.path(here::here(), datasets)
 
-#Make maps for the different experiments inside geo_dataset
+# Make maps for the different experiments inside geo_dataset
 purrr::walk(
   full_paths,
   dir.create)
 ```
 
-
-Now R knows with what kind of data we want to work with, we can download the first set of data.
+Now the program knows with what kind of data we want to work with, we can download the first set.
 We do this with the function “map2” the .x tells what data to look for and .y where to put it. The function getGEO does all the magic to get the data. You might notice at .y we used full_paths, we made this directory in the last code chunk, it gives the location of the folder for each experiment.
 
-```{r data_download_1}
-#download the data 
+```{r}
+# Download the data 
 data <- map2(
   .x  = datasets,
   .y = full_paths,
@@ -53,9 +50,9 @@ data <- map2(
 )
 ```
 
-With  the first data, about the experiment, downloaded, it’s time to get the supp_files. We use the same map2 function from before but now with the function “getGEOSuppFiles”. This will get the supp_files from the selected experiment.
+With the first experimental data downloaded, it’s time to get the supp_files. We use the same map2 function from before, but now with the function “getGEOSuppFiles”. This will get the supp_files from the selected experiment.
 
-```{r data_download_2}
+```{r}
 #Get supp files
 data_supp <- map2(
   .x  = datasets,
@@ -68,4 +65,5 @@ data_supp <- map2(
 )
 ```
 
-Now we’ve downloaded the experimental data (supp_files), we need to unpack them. Supp_files are often zipped or tarred, our next job is to unzip and or untar these files. First we’ll explain the untarring of files then after that the unzipping of the data.
+Now the experimental data is downloaded (supp_files), we need to unpack the data. Supp_files are often zipped or tarred, our next job is to unzip and or untar these files. First we’ll explain the untarring of the files and after that the unzipping of the data.
+

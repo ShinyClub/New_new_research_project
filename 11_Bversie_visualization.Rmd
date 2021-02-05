@@ -9,8 +9,6 @@ params:
   geo_dataset: GSE150646
 ---
 
-
-
 ### The visualization of the dataset 
 
 The code below will plot a histogram, this histogram will show the distribution of the p-values calculated by the DESeq2 analyze. 

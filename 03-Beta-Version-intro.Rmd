@@ -9,18 +9,18 @@ params:
   geo_dataset: GSE150646
 ---
 
-
 #The hardcode - the beta version of the dashboard
+
 Differential expression analysis
 This analysis used the DESeq2 workflow by Love et al., 2014(^ Love, M.I., Huber, W. & Anders, S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol 15, 550 (2014). https://doi.org/10.1186/s13059-014-0550-8)
 
-In this report we will explain every fucntion that we used o create the hardcode and the Shiny application. 
+In this report we will explain every function that we used too create the hardcode and later the Shiny application. 
 
-At the start of the project we will download serveral library's and create a root file.
+At the start of the project we will download and load serveral library's after this a root file is created.
 The processed data will be stored here. 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(include = FALSE)
 ```
 
 ```{r eval=FALSE, include=FALSE}
@@ -40,7 +40,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r include=FALSE}
-#load libraries
+# Load libraries
 library(bookdown)
 library(tidyverse)
 library(rprojroot)
@@ -59,7 +59,7 @@ library(readr)
 
 
 ```{r}
-#Find the root file
+# Find the root file
 root <- find_root_file(criterion = is_rstudio_project)
 ```
 

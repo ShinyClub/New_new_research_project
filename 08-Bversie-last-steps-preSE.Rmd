@@ -9,37 +9,39 @@ params:
   geo_dataset: GSE150646
 ---
 
-### Last steps before SummarizedExperiment
+### Last steps before the SummarizedExperiment
 
-Now we can load the CSV_file, you’ll see the first few counts inside the file. Check if the data file is a “data.frame.
+Now we can load the CSV_file, you’ll see the first few counts inside the file. Check if the data file is a “data.frame".
 
 ```{r}
-#Load the raw data from the csv data
+# Load the raw data from the csv data
 load_csv_data <- list.files(path = here::here(params$geo_dataset), full.names = TRUE, pattern = ".csv")
 csv_data <- read.csv(load_csv_data)
-#the first few counts of the raw data
+
+# The first few counts of the raw data
 head(csv_data)
 
-#Check if the csv_data is a data.frame
+# Check if the csv_data is a data.frame
 class(csv_data)
 ```
 
 In raw_counts_csv_data we load in the raw counts of the csv file, minus the first column because these are names of the samples. Also note that it can be more or less columns in different documents. In the next step we change the name of the columns to make them more understandable. The last step is to change the data.frame into a data.matrix for SummarizedExperiment.
 ```{r}
-## In het volgende stukje willen we dat de namen goed komen te staan, je ziet eerst dat het rommelig is en daarna hebben ze GSM nummers
-#Laat alleen de raw counts over
+# In the next part we want to arrange the names. 
+
+# Isolate the raw counts. 
 raw_counts_csv_data <- csv_data[2:21]
+
 #head(raw_counts_csv_data)
 
-##make rowdata_csv
+# Make the rowdata_csv
 rowdata_csv_data <- raw_counts_csv_data$`Gene symbol`
 
-#Kan ik de raw_counts_csv_data gebruiken om colnames te maken test
+# The raw counts are used to create the colnames. 
 colnames(raw_counts_csv_data) <-samplenames_csv[[1]]
 head(raw_counts_csv_data)
 
-#maak er een matrix van, weet niet waarom
-
+# A matrix is created. 
 raw_counts_csv_data_matrix <- data.matrix(raw_counts_csv_data)
 rownames(raw_counts_csv_data_matrix) <- rowdata_csv_data
 #head(raw_counts_csv_data_matrix)

@@ -14,7 +14,7 @@ params:
 We start the same way as “untar the data”, we tell R where to find the zipped files and select them with the pattern “.gz”.
 The new map function will then unzip the files with function GEOquery::gunzip
 
-```{r Unzip files}
+```{r}
 files_zip <- list.files(path = here::here(datasets), full.names = TRUE, pattern = ".gz")
 
 unzipp <- map(
@@ -24,3 +24,4 @@ unzipp <- map(
 ```
 
 In these first few steps we have: Downloaded supp_files and data about the experiment and unpacked these files. The next steps will be making sure the data is ready for data-analysis.
+

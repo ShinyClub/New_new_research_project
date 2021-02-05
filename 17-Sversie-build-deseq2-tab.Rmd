@@ -10,8 +10,8 @@ params:
 ---
 
 
-#### Deseq2 function
-```{r eval=FALSE, include=FALSE}
+## Deseq2 function
+```{r eval=FALSE}
 #DESeq2 function (only head, what does this?)
 #Loading the se we just made in the Summarised Experiment
 deseq2_function <- function(se_input){
@@ -38,7 +38,7 @@ deseq2_function <- function(se_input){
 ###Make DESeq2 tab
 This page is quite simple, we make a box where the data will be rendered. With an actionbutton the user will be able to activate the "deseq2_function" 
 
-```{r eval=FALSE, include=FALSE}
+```{r eval=FALSE}
 #deseq2 tab UI
 #Hoe kunnen we alleen de code laten zien, maar niet laten lopen?
 tabItem(tabName = "make_DESeq2",
@@ -57,7 +57,8 @@ tabItem(tabName = "make_DESeq2",
           ))
 ```
 
-```{r eval=FALSE, include=FALSE}
+With this part of the code we tell what to use for the se_input. This is the se_2 we created in the last function (summarized experiment)
+```{r eval=FALSE}
 #deseq2 tab server
 head_res <- eventReactive(input$calculate_DESeq2, {
     deseq2_function(se_input = se_2())
@@ -68,11 +69,12 @@ head_res <- eventReactive(input$calculate_DESeq2, {
   })
 ```
 
+The DESeq2 function will give a output shown below.
 ```{r eval=FALSE, include=FALSE}
 DESeq2_page <-  here::here("eindverslag", "images", "Deseq2.PNG")
 ```
 
-How this dashboard looks like.
-```{r}
+How the DESeq2 tab looks like.
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/Deseq2_tab.PNG")
 ```

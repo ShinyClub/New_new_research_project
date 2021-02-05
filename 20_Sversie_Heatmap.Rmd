@@ -9,7 +9,7 @@ params:
   geo_dataset: GSE150646
 ---
 
-#### Heatmap function
+### Heatmap function
 ```{r eval=FALSE}
 heatmap_function <- function(se_input){
   #First part is the deseq2 function again
@@ -43,7 +43,7 @@ heatmap_function <- function(se_input){
 ```
 
 
-#### Make heatmap figure of top 20
+### Shiny Make heatmap figure of top 20
 
 ```{r eval=FALSE}
 box(

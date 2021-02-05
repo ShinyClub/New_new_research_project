@@ -101,8 +101,8 @@ The last box shows the selected colnames of the phenodata.
                )))
 ```
 
-How this dashboard looks like.
-```{r}
+How this Summarized Experiment tab looks like.
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/SE_tab.PNG")
 ```
 

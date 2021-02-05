@@ -35,7 +35,8 @@ new_supp_download_fucntion <- function(gse_id_number) {
   
 }
 ```
-   
+
+We created a new unzip function for csv files because the existing one was created for txt files, we'll show both.  
 This is the old function that is used to unzip and untar the GSE dataset. 
 ```{r eval= FALSE}
 untar_unzip_function <- function(gse_id_number){
@@ -70,7 +71,7 @@ return(filenames)
 }
 ```
 
-The new unzip function is created. We used this function to unzip the CSV data files.    
+The new unzip function (for csv files).  
 ```{r eval= FALSE}
 new_unzip_function <- function(gse_id_number) {
   
@@ -88,9 +89,15 @@ new_unzip_function <- function(gse_id_number) {
 }   
    
 ```   
+
+
    
 ## Supplementary files download and make assaydata tab 
-   
+
+### The working code behind the application
+
+No extra functions were created for this tab. 
+    
 ### Shiny   
 #### Server.R  
 
@@ -177,7 +184,7 @@ This is the code used in the server to load the supp files and untar and unzip t
 ```          
 
 How this dashboard looks like.
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/supp_files_tab.PNG")
 ```
 

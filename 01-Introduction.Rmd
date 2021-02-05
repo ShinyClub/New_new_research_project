@@ -11,17 +11,17 @@ params:
 
 # Introduction
 
-The purpose of this project wat to create a dashboard for processing and visualizing transcriptome data. 
+The purpose of this project was to create a dashboard for processing and visualizing transcriptome data. 
 
 The basics of the dashboard was made by Thomas Baardemans. The hardcode was capable to completly proces an GSE dataset that was saved in a text file. The project is guided by Marc Teunis. Marie Corradi joined the project later as an advisor. 
 
 Our main goal was to automate the dashboard and to adapt the code so that other file types, like CSV files can be processed. 
 
-The main tools for this project was the programming language R and the work environment Rstudio. R and Rstudio are created for data analysis, both are open source, free and have an active community that create new library’s, packages and functions. The software is also quite easy to use sinds both of us didn’t have any background knowledge about coding before we started the minor. 
+The main tools for this project was the programming language R and the work environment Rstudio. R and Rstudio are created for data analysis, both are open source, free and have an active community that create new library’s, packages and functions. The software is also quite easy to use since both of us didn’t have any background knowledge about coding before we started the minor. 
 
-A library exits out of multiple package and a package consits out of multiple functions. A function is used to achieve a specific task. 
+A library exits out of multiple packages and a package consits out of multiple functions. A function is used to achieve a specific task. 
 
-The first version of the dashboard is created with R Markdown, this coding environment is used to make an active document with R. Markdown consits of a tekst format with chunks used for coding. The first version is also called the hardcode. 
+The first version of the dashboard is created with R Markdown, this coding environment is used to make an active document with R. Markdown consits of a text format with chunks used for coding. The first version is also called the hardcode. 
 
 The hardcode consists of three frameworks, knitr to create reports, markdown for the text and YAML wich is used for parameters. In the YAML stands the author, the title and extra information, here the parameters can be added. Parameters were used to automate the code. 
 

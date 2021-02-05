@@ -9,7 +9,7 @@ params:
   geo_dataset: GSE150646
 ---
 
-#### Vulcan plot code
+### Vulcan plot code
 ```{r eval= FALSE}
 vulcan_function <-function(se_input) {
   ddsSE <- DESeq2::DESeqDataSet(se_input, design = formula(~dev_stage + genotype))
@@ -36,7 +36,7 @@ vulcan_function <-function(se_input) {
 ```
 
 
-#### Make vulcan plot
+### Shiny Make vulcan plot
 ```{r eval= FALSE}
 box(
             title = "Vulcan plot",

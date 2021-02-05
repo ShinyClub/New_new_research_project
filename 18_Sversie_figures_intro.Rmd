@@ -10,8 +10,9 @@ params:
 ---
 
 
-### Figures
-Inside the figure tab we need to make boxes so the figures have a place to go, we also have to make an actionbutton so only the figures you want will be displayed. For now this doesn't work. Pressing one button will give you all the figures. This will give a long loading time, so we want to add a loading barr.
+## Figures
+Inside the figure tab we need to make boxes so the figures have a place to go, we also have to make an actionbutton so only the figures you want will be displayed. For now this doesn't work. Pressing one button will give you all the figures. This will give a long loading time, so we want to add a loading barr.  
+This is a big chapter, we show the functions for all 4 figures at the same time.
 
 ```{r eval= FALSE}
 #figures tab UI
@@ -105,19 +106,19 @@ tabItem(tabName = "make_figures",
 ```
 
 How the PCA looks like.
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/PCA_tab.PNG")
 ```
 How the heatmap looks like.
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/heatmap_tab.PNG")
 ```
 How the histogram looks like.
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/Histogram_tab.PNG")
 ```
 How the vulcan plot looks like.
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/vulcan_plot.PNG")
 ```
 

@@ -10,7 +10,7 @@ params:
 ---
 
 
-#### Histogram code
+### Histogram function
 ```{r eval=FALSE}
 geom_histogram_function <- function(se_input) {
   
@@ -38,7 +38,7 @@ geom_histogram_function <- function(se_input) {
 ```
 
 
-#### Make histogram figure
+### Shiny Histogram
 ```{r eval=FALSE}
 box(
             title = "Histogram",

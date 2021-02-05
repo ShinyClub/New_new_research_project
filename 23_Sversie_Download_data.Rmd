@@ -14,3 +14,7 @@ params:
 ### Download data tab
 We want to be able to download the data, this doesn't work yet.
 
+How this dashboard looks like.
+```{r echo=FALSE}
+knitr::include_graphics("dashboard_pictures/download_tab.PNG")
+```

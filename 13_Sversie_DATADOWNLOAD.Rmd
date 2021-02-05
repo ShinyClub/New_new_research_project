@@ -77,7 +77,7 @@ The output of the contents of the GSE dataset. This shows different platforms. B
 
 #### UI.R
 
-The code below creates a input box for downloading the GSE number of the dataset. The box below that shows the platforms that are in the dataset. Then the platform can be selected. The last box shows a bit of the phenodata so the user can decide what platform they want to use. 
+The code below creates a input box for downloading the GSE number of the dataset. The box below shows the platforms that are in the dataset. Then the platform can be selected. The last box shows a bit of the phenodata so the user can decide what platform they want to use. 
 ```{r eval= FALSE}
       tabItem(tabName = "download_dataset",
               fluidRow(
@@ -113,8 +113,8 @@ The code below creates a input box for downloading the GSE number of the dataset
     ))
 ```
 
-How this dashboard looks like.
-```{r}
+How the download dataset tab looks like.
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/download_dataset_tab.PNG")
 ```
 

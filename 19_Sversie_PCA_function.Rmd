@@ -10,7 +10,7 @@ params:
 ---
 
 
-#### PCA function
+### PCA function
 ```{r eval=FALSE}
 #PCA fucntion
 pca_function <- function(se_input){
@@ -38,7 +38,7 @@ pca_function <- function(se_input){
 ```
 
 
-#### Make PCA figure
+### Shiny Make PCA figure
 ```{r eval=FALSE}
 tabItem(tabName = "make_figures",
         fluidRow(
@@ -60,8 +60,5 @@ tabItem(tabName = "make_figures",
   })
 ```
 
-How this dashboard looks like.
-```{r}
-knitr::include_graphics("dashboard_pictures/download_tab.PNG")
-```
+
 

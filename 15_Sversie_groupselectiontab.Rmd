@@ -10,9 +10,10 @@ params:
 ---
 
 ## Groupselection tab
-wow hier kan je niets doen.  
+In this section you're supposed to see all the information about the experiment, like experimental groups but also how to contact the researchers. 
+Because this section doesn't work we only show how it looks like.
 
-How this dashboard looks like.
-```{r}
+How the experimental groups tab looks like.  
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/experimental_groups_tab.PNG")
 ```

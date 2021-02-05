@@ -11,8 +11,8 @@ params:
 
 # The dashboard created with Shiny
 
-In these chapters we'll show you the functions that we used to create the application. 
+In these chapters we'll show you the functions that we used to create this application, together with the codes created in Shiny.  
 In the picture below you see the front page of the dashboard. 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("dashboard_pictures/instructions_tab.PNG")
 ```

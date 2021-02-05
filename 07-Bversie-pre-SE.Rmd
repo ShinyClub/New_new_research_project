@@ -9,9 +9,9 @@ params:
   geo_dataset: GSE150646
 ---
 
-## Make data ready for SummarizedExperiment and DESeq2
+## Make the data ready for SummarizedExperiment and DESeq2
 
-###Genarating a summarized experiment for (CSV)
+### Genarating a summarized experiment for CSV
 
 The first steps in making a summarized experiment are getting the phenodata and metadata.
 Before we do that we first check if we still have the correct data selected. 
@@ -21,11 +21,11 @@ After this quick check we want to know how to get to our data and make this easi
 
 
 ```{r prepare for SE}
-#We look into the datasets to check if we have selected the experiments we want to work with. 
+# We look into the datasets to check if we have selected the experiments we want to work with. 
 glimpse(datasets)
 glimpse(data)
 
-#To get to the data we need to do the same function twice, thats why we called the first one 'pre'
+# To get to the data we need to do the same function twice, thats why we called the first one 'pre'
 pre_gse_csv <- data[[1]]
 gse_csv <- pre_gse_csv[[1]]
 glimpse(gse_csv)
@@ -34,17 +34,17 @@ glimpse(gse_csv)
 
 Now we know that we’ve the correct data and can easily access them we’ll make the phenodata and metadata. We only need 2 functions to do this, pData and experimentData.
 ```{r pheno and meta data}
-#obtaining phenotypic data. contains all the info regarding each sample. #werkt niet
+# Obtaining the phenotypic data, this contains all the info regarding each sample. 
 phenodata_csv <- pData(gse_csv) %>% as_tibble
 class(phenodata_csv)
-#metadata maken en controleren of dit klopt
+# Make the metadata
 metadata_csv <- experimentData(gse_csv)
 #class(metadata_csv)
 ```
 
 Now we need to “clean up” the phenodata a little bit before we can continue making a summarizedExperiment. When we look at the phenodata (with head) we see some weird names like “characteristics_ch1.1” and “characteristics_ch1.2”, these are the variables of the experiments. When you read “characteristics_ch1.1” you’ve no clue what the experiment is about, so you can change the name (for example) to gender/dev_stage/genotype etc. You can change the names with the params data1 and data2 at the start of this document. The place of “characteristics_ch1.1” can change from experiment to experiment, we haven’t find a way to automate this yet.
 ```{r}
-#To look at what columm (number) the characteristics are, this can change per research, we haven't automated this yet.
+# To look at what columm (number) the characteristics are, this can change per research, we haven't automated this yet.
 names(phenodata_csv)
 # Het benoemen van experimentele waarde
 colnames(phenodata_csv)[11] <- params$data1

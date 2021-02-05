@@ -24,3 +24,4 @@ unzipp <- map(
 ```
 
 In these first few steps we have: Downloaded supp_files and data about the experiment and unpacked these files. The next steps will be making sure the data is ready for data-analysis.
+
